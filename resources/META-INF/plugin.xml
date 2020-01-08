@@ -1,0 +1,36 @@
+<idea-plugin>
+  <id>com.shenyong.flutter.generator</id>
+  <name>Flutter资源引用生成插件</name>
+  <version>1.0</version>
+  <vendor email="shenyong812@gmail.com" url="https://blog.csdn.net/China_Style">ChinaStyle</vendor>
+
+  <description>
+    Flutter 插件， 为资源文件生成dart常量引用，并在pubspec.yaml中自动插入资源声明，避免手动编写。默认会读取assets、images等目录。
+  </description>
+
+  <change-notes>
+    v 0.1.0发布，支持的特性：
+    1、读取assets、images等目录，为资源文件生成dart常量引用；
+    2、在pubspec.yaml中自动更新资源声明。
+  </change-notes>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+  <idea-version since-build="173.0"/>
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="FlutterAssetsRefGenerator" class="com.shenyong.flutter.assetsrefgen.AssetsRefGenerator"
+            text="生成Flutter资源引用" description="生成Flutter资源引用">
+      <add-to-group group-id="ToolbarRunGroup" anchor="last"/>
+    </action>
+  </actions>
+
+</idea-plugin>
