@@ -3,7 +3,7 @@
 
 无需手动编辑 pubspec.yaml 中的资源文件声明和代码中的资源字符串。避免出错，也方便开发编码。
 
-[English Doc][1]
+[English Doc][2]
 
 ## 功能
  - 自动更新 pubspec.yaml 文件中的资源声明。
@@ -20,4 +20,4 @@
  - 初始版本功能添加和完善
  
 [1]:https://flutterchina.club/
-[2]:https://github.com/ChinaStyle812/AssetsRefGenerator/blob/master/README.md
+[2]:https://github.com/ChinaStyle812/AssetsRefGenerator
