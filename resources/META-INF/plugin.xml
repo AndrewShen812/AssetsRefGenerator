@@ -6,31 +6,28 @@
 
   <description><![CDATA[
   <div>
-    Supports using assets easier in <a href="https://flutter.dev/">Flutter</a> projects.
+    Makes it easier to use assets in <a href="https://flutter.dev/">Flutter</a> project. Just like using R.drawable.xxx in Android!
   </div>
-  <br/>
-  Update assets declaration in pubspec.yaml automatically and generate a res.dart file contained assets constant for Flutter project,
-  Aiming to make it easier to use assets in Flutter, just like using R.drawable.xxx in Android!
 
   <br/>
   <P>
     <b>
       <a href="https://github.com/ChinaStyle812/AssetsRefGenerator">GitHub</a> |
-      <a href="https://chinastyle812.github.io/AssetRefGenerator/doc_zh.html">中文文档</a>
+      <a href="https://github.com/ChinaStyle812/AssetsRefGenerator/blob/master/README_zh.md">中文文档</a>
     </b>
   </P>
 
   <h2>Features</h2>
   <ul>
-    <li>Update assets declaration in pubspec.yaml.</li>
-    <li>generate a res.dart file contained assets constant.</li>
+    <li>Update assets declaration in pubspec.yaml automatically.</li>
+    <li>generate a <b>res.dart</b> file contained assets definition.</li>
   </ul>
 
   <h2>Getting started</h2>
   <ul>
     <li>Open your Flutter project.</li>
     <li>Create assets directory named asset/assets/images and put your asset files in the directory.</li>
-    <li>Click action button <img src="https://chinastyle812.github.io/AssetRefGenerator/genAssetRef.svg"> in the Toolbar.</li>
+    <li>Click the action button <img src="https://chinastyle812.github.io/AssetRefGenerator/genAssetRef.svg"> in the Toolbar.</li>
     <li>Now you'll see the pubspec.yaml file has been updated and a res.dart file also has been created under lib.</li>
   </ul>
   ]]></description>
