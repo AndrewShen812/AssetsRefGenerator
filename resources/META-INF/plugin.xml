@@ -1,18 +1,53 @@
 <idea-plugin>
-  <id>com.shenyong.flutter.generator</id>
-  <name>Flutter资源引用生成插件</name>
-  <version>1.0</version>
-  <vendor email="shenyong812@gmail.com" url="https://blog.csdn.net/China_Style">ChinaStyle</vendor>
+  <id>com.shenyong.flutter.refgenerator</id>
+  <name>Flutter Assets Ref Generator</name>
+  <version>1.0.0</version>
+  <vendor email="shenyong812@gmail.com" url="https://github.com/ChinaStyle812/AssetsRefGenerator">Andrew Shen</vendor>
 
-  <description>
-    Flutter 插件， 为资源文件生成dart常量引用，并在pubspec.yaml中自动插入资源声明，避免手动编写。默认会读取assets、images等目录。
-  </description>
+  <description><![CDATA[
+  <div>
+    Supports using assets easier in <a href="https://flutter.dev/">Flutter</a> projects.
+  </div>
+  <br/>
+  Update assets declaration in pubspec.yaml automatically and generate a res.dart file contained assets constant for Flutter project,
+  Aiming to make it easier to use assets in Flutter, just like using R.drawable.xxx in Android!
 
-  <change-notes>
-    v 0.1.0发布，支持的特性：
-    1、读取assets、images等目录，为资源文件生成dart常量引用；
-    2、在pubspec.yaml中自动更新资源声明。
-  </change-notes>
+  <br/>
+  <P>
+    <b>
+      <a href="https://github.com/ChinaStyle812/AssetsRefGenerator">GitHub</a> |
+      <a href="https://chinastyle812.github.io/AssetRefGenerator/doc_zh.html">中文文档</a>
+    </b>
+  </P>
+
+  <h2>Features</h2>
+  <ul>
+    <li>Update assets declaration in pubspec.yaml.</li>
+    <li>generate a res.dart file contained assets constant.</li>
+  </ul>
+
+  <h2>Getting started</h2>
+  <ul>
+    <li>Open your Flutter project.</li>
+    <li>Create assets directory named asset/assets/images and put your asset files in the directory.</li>
+    <li>Click action button <img src="https://chinastyle812.github.io/AssetRefGenerator/genAssetRef.svg"> in the Toolbar.</li>
+    <li>Now you'll see the pubspec.yaml file has been updated and a res.dart file also has been created under lib.</li>
+  </ul>
+  ]]></description>
+
+  <change-notes><![CDATA[
+    <b>1.0.0</b>
+    <br/>
+    Implement basic functions.
+    <ul>
+      <li>
+        Scan asset files under directory named asset, or assets or images, add asset declaration in pubspec.yaml.
+      </li>
+      <li>
+        Generate a res.dart file under lib, which contains string-type asset definition.
+      </li>
+    </ul>
+  ]]></change-notes>
 
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
   <idea-version since-build="173.0"/>
@@ -27,8 +62,9 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="FlutterAssetsRefGenerator" class="com.shenyong.flutter.assetsrefgen.AssetsRefGenerator"
-            text="生成Flutter资源引用" description="生成Flutter资源引用">
+    <action id="FlutterAssetsRefGenerator" class="com.shenyong.flutter.AssetsRefGenerator"
+            text="Generate Flutter Assets Reference" description="Flutter assets ref generator"
+    icon="/icons/genAssetRef.svg">
       <add-to-group group-id="ToolbarRunGroup" anchor="last"/>
     </action>
   </actions>
