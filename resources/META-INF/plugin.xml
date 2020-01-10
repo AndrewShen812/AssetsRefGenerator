@@ -26,7 +26,7 @@
   <h2>Getting started</h2>
   <ul>
     <li>Open your Flutter project.</li>
-    <li>Create assets directory named asset/assets/images and put your asset files in the directory.</li>
+    <li>Create assets directory named asset,assets or images, and put your asset files in the directory.</li>
     <li>Click the action button <img src="https://chinastyle812.github.io/AssetRefGenerator/genAssetRef.svg"> in the Toolbar.</li>
     <li>Now you'll see the pubspec.yaml file has been updated and a res.dart file also has been created under lib.</li>
   </ul>

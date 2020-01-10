@@ -56,6 +56,8 @@ public class AssetsRefGenerator extends AnAction {
     private static final String PUBSPEC = "pubspec.yaml";
     private static final String RES_FILE = "res.dart";
 
+    private static final String NOT_FLUTTER = "Current directory does not seem to be a valid Flutter project directory.";
+
     static {
         projFiles = new ArrayList<>();
         projFiles.add("android");
@@ -75,11 +77,11 @@ public class AssetsRefGenerator extends AnAction {
         Project project = e.getData(PlatformDataKeys.PROJECT);
         String path = Objects.requireNonNull(project).getBasePath();
         if (!checkFlutterProj(path)) {
-            showErrMsg("当前似乎不在一个有效的Flutter工程目录");
+            showErrMsg(NOT_FLUTTER);
             return;
         }
         if (!checkAssets(path)) {
-            showErrMsg("当前工程似乎还没有定义资源目录（asset/assets/images）");
+            showErrMsg("No asset directory named asset, assets or images was found.");
             return;
         }
 
@@ -111,7 +113,7 @@ public class AssetsRefGenerator extends AnAction {
         }
         File dir = new File(path);
         if (!dir.exists() || !dir.isDirectory()) {
-            showErrMsg("当前似乎不在一个有效的Flutter工程目录");
+            showErrMsg(NOT_FLUTTER);
         }
         return isAllFilesContained(Objects.requireNonNull(dir.list()), projFiles);
     }
@@ -129,7 +131,7 @@ public class AssetsRefGenerator extends AnAction {
     }
 
     private List<String> getAssets(String path) {
-        System.out.println("扫描资源文件...");
+        System.out.println("Scanning asset files under asset, assets and images...");
         assetsNames.clear();
         List<String> assets = new ArrayList<>();
         for (String name : assetFiles) {
@@ -197,7 +199,7 @@ public class AssetsRefGenerator extends AnAction {
      * @param assets 扫描生成的资源声明
      */
     private void updatePubspec(String path, List<String> assets) {
-        System.out.println("更新 pubspec.yaml ...");
+        System.out.println("Updating pubspec.yaml...");
         File pubspec = new File(path, PUBSPEC);
         if (!pubspec.exists()) {
             return;
@@ -289,7 +291,7 @@ public class AssetsRefGenerator extends AnAction {
 
     private static final Pattern PATTERN = Pattern.compile("packages/(?<pkgName>[a-z_]+)/.*");
     private void genResDart(String path, List<String> assets) {
-        System.out.println("更新 res.dart ...");
+        System.out.println("Updating res.dart...");
         File resFile = new File(path + "/" + "lib", RES_FILE);
         if (!resFile.exists()) {
             try {
@@ -353,7 +355,7 @@ public class AssetsRefGenerator extends AnAction {
                 }
             }
         }
-        System.out.println("已更新 Flutter 资源声明");
+        System.out.println("Flutter assets reference has been updated.");
         showSuccessInfo();
     }
 }
