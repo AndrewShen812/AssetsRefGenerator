@@ -16,6 +16,10 @@ Makes it easier to use assets in [Flutter][1], just like using R.drawable.xxx in
 ## Change-notes
 1.0.0
  - Implement basic functions.
+ 
+## Thanks
+ - Logo and icon: [Iconfont-阿里巴巴矢量图标库][3]
 
 [1]:https://flutter.dev/
 [2]:https://github.com/ChinaStyle812/AssetsRefGenerator/blob/master/README_zh.md
+[3]:https://www.iconfont.cn/search/index?q=flutter
