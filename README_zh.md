@@ -18,6 +18,10 @@
 ## 更新日志
 1.0.0
  - 初始版本功能添加和完善
+
+## 致谢
+ - 插件logo及图标：[Iconfont-阿里巴巴矢量图标库][3]
  
 [1]:https://flutterchina.club/
 [2]:https://github.com/ChinaStyle812/AssetsRefGenerator
+[3]:https://www.iconfont.cn/search/index?q=flutter
