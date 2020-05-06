@@ -46,12 +46,13 @@ import java.util.regex.Pattern;
  * 主要解决问题：无需手动编辑 pubspec.yaml 中的资源文件声明和代码中的资源引用字符串。即避免出错，也方便开发编码，像 Android 中
  * R.drawable.xxx 方式一样，更加愉快的引用资源。
  *
- * @date 2020年1月8日
  * @author sy
+ * @date 2020年1月8日
  */
 public class AssetsRefGenerator extends AnAction {
 
     private static ArrayList<String> projFiles;
+    private static ArrayList<String> projModelFiles;
     private static ArrayList<String> assetFiles;
     private static final String PUBSPEC = "pubspec.yaml";
     private static final String RES_FILE = "res.dart";
@@ -65,6 +66,13 @@ public class AssetsRefGenerator extends AnAction {
         projFiles.add("lib");
         projFiles.add("pubspec.lock");
         projFiles.add(PUBSPEC);
+
+        projModelFiles = new ArrayList<>();
+        projModelFiles.add(".android");
+        projModelFiles.add(".ios");
+        projModelFiles.add("lib");
+        projModelFiles.add("pubspec.lock");
+        projModelFiles.add(PUBSPEC);
 
         assetFiles = new ArrayList<>();
         assetFiles.add("asset");
@@ -115,7 +123,7 @@ public class AssetsRefGenerator extends AnAction {
         if (!dir.exists() || !dir.isDirectory()) {
             showErrMsg(NOT_FLUTTER);
         }
-        return isAllFilesContained(Objects.requireNonNull(dir.list()), projFiles);
+        return isAllFilesContained(Objects.requireNonNull(dir.list()), projFiles) || isAllFilesContained(Objects.requireNonNull(dir.list()), projModelFiles);
     }
 
     private boolean checkAssets(String path) {
@@ -142,6 +150,7 @@ public class AssetsRefGenerator extends AnAction {
     }
 
     private HashSet<String> assetsNames = new HashSet<>();
+
     private void getAssets(List<String> assets, File dir, String prefix) {
         if (!dir.exists() || !dir.isDirectory()) {
             return;
@@ -195,7 +204,8 @@ public class AssetsRefGenerator extends AnAction {
 
     /**
      * 更新pubspec.yaml文件中的资源声明
-     * @param path 项目路径
+     *
+     * @param path   项目路径
      * @param assets 扫描生成的资源声明
      */
     private void updatePubspec(String path, List<String> assets) {
@@ -278,11 +288,12 @@ public class AssetsRefGenerator extends AnAction {
 
     /**
      * 去掉已删除资源的旧声明，但保留引入的其他package的资源（以”  - packages/*"形式声明的）
-     * @param newAssets 扫描生成的资源声明
+     *
+     * @param newAssets   扫描生成的资源声明
      * @param oldRemained 遗留的其他声明
      */
     private void removeDeleted(List<String> newAssets, List<String> oldRemained) {
-        for (String line: oldRemained) {
+        for (String line : oldRemained) {
             if (line.matches("^ {2,}- packages/.*")) {
                 newAssets.add(line);
             }
@@ -290,6 +301,7 @@ public class AssetsRefGenerator extends AnAction {
     }
 
     private static final Pattern PATTERN = Pattern.compile("packages/(?<pkgName>[a-z_]+)/.*");
+
     private void genResDart(String path, List<String> assets) {
         System.out.println("Updating res.dart...");
         File resFile = new File(path + "/" + "lib", RES_FILE);
