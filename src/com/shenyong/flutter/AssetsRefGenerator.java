@@ -29,6 +29,8 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
+import com.shenyong.flutter.checker.AssetsChecker;
+import com.shenyong.flutter.checker.ProjChecker;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -51,44 +53,22 @@ import java.util.regex.Pattern;
  */
 public class AssetsRefGenerator extends AnAction {
 
-    private static ArrayList<String> projFiles;
-    private static ArrayList<String> projModelFiles;
-    private static ArrayList<String> assetFiles;
     private static final String PUBSPEC = "pubspec.yaml";
     private static final String RES_FILE = "res.dart";
+    private static final String MAC_OS_DS_STORE = ".DS_Store";
 
-    private static final String NOT_FLUTTER = "Current directory does not seem to be a valid Flutter project directory.";
-
-    static {
-        projFiles = new ArrayList<>();
-        projFiles.add("android");
-        projFiles.add("ios");
-        projFiles.add("lib");
-        projFiles.add("pubspec.lock");
-        projFiles.add(PUBSPEC);
-
-        projModelFiles = new ArrayList<>();
-        projModelFiles.add(".android");
-        projModelFiles.add(".ios");
-        projModelFiles.add("lib");
-        projModelFiles.add("pubspec.lock");
-        projModelFiles.add(PUBSPEC);
-
-        assetFiles = new ArrayList<>();
-        assetFiles.add("asset");
-        assetFiles.add("assets");
-        assetFiles.add("images");
-    }
+    private ProjChecker projChecker = new ProjChecker();
+    private AssetsChecker assetsChecker = new AssetsChecker();
 
     @Override
     public void actionPerformed(AnActionEvent e) {
         Project project = e.getData(PlatformDataKeys.PROJECT);
         String path = Objects.requireNonNull(project).getBasePath();
-        if (!checkFlutterProj(path)) {
-            showErrMsg(NOT_FLUTTER);
+        if (!projChecker.check(path)) {
+            showErrMsg("Current directory does not seem to be a valid Flutter project directory.");
             return;
         }
-        if (!checkAssets(path)) {
+        if (!assetsChecker.check(path)) {
             showErrMsg("No asset directory named asset, assets or images was found.");
             return;
         }
@@ -105,44 +85,12 @@ public class AssetsRefGenerator extends AnAction {
                 "Flutter Assets Reference Generator", Messages.getInformationIcon());
     }
 
-    private boolean isAllFilesContained(String[] files, ArrayList<String> checkFiles) {
-        int cnt = 0;
-        for (String f : files) {
-            if (checkFiles.contains(f)) {
-                cnt++;
-            }
-        }
-        return cnt >= checkFiles.size();
-    }
-
-    private boolean checkFlutterProj(String path) {
-        if (path == null || path.isEmpty()) {
-            return false;
-        }
-        File dir = new File(path);
-        if (!dir.exists() || !dir.isDirectory()) {
-            showErrMsg(NOT_FLUTTER);
-        }
-        return isAllFilesContained(Objects.requireNonNull(dir.list()), projFiles) || isAllFilesContained(Objects.requireNonNull(dir.list()), projModelFiles);
-    }
-
-    private boolean checkAssets(String path) {
-        File dir = new File(path);
-        String[] files = Objects.requireNonNull(dir.list());
-        int cnt = 0;
-        for (String f : files) {
-            if (assetFiles.contains(f)) {
-                cnt++;
-            }
-        }
-        return cnt > 0;
-    }
-
     private List<String> getAssets(String path) {
         System.out.println("Scanning asset files under asset, assets and images...");
         assetsNames.clear();
+        List<String> assetsDirs = assetsChecker.getAssetsDirs();
         List<String> assets = new ArrayList<>();
-        for (String name : assetFiles) {
+        for (String name : assetsDirs) {
             File dir = new File(path, name);
             getAssets(assets, dir, name);
         }
@@ -155,7 +103,13 @@ public class AssetsRefGenerator extends AnAction {
         if (!dir.exists() || !dir.isDirectory()) {
             return;
         }
-        File[] files = dir.listFiles();
+        File[] files = dir.listFiles(new FilenameFilter() {
+            @Override
+            public boolean accept(File dir, String name) {
+                // 忽略 MacOS 中的 .DS_Store 文件
+                return !MAC_OS_DS_STORE.equals(name);
+            }
+        });
         if (files == null) {
             return;
         }

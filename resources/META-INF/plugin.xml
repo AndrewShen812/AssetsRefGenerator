@@ -33,6 +33,15 @@
   ]]></description>
 
   <change-notes><![CDATA[
+    <b>1.0.1</b>
+    <ul>
+      <li>
+        Support Flutter Module, Package and Plugin project.
+      </li>
+      <li>
+        Ignore .DS_Store file on Mac OS X.
+      </li>
+    </ul>
     <b>1.0.0</b>
     <br/>
     Implement basic functions.
@@ -59,9 +68,11 @@
 
   <actions>
     <!-- Add your actions here -->
-    <action id="FlutterAssetsRefGenerator" class="com.shenyong.flutter.AssetsRefGenerator"
-            text="Generate Flutter Assets Reference" description="Flutter assets ref generator"
-    icon="/icons/genAssetRef.svg">
+    <action id="FlutterAssetsRefGenerator"
+            class="com.shenyong.flutter.AssetsRefGenerator"
+            text="Generate Flutter Assets Reference"
+            description="Flutter assets ref generator"
+            icon="/icons/genAssetRef.svg">
       <add-to-group group-id="ToolbarRunGroup" anchor="last"/>
     </action>
   </actions>
