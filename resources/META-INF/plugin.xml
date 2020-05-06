@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>com.shenyong.flutter.refgenerator</id>
   <name>Flutter Assets Ref Generator</name>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <vendor email="shenyong812@gmail.com" url="https://github.com/ChinaStyle812/AssetsRefGenerator">Andrew Shen</vendor>
 
   <description><![CDATA[

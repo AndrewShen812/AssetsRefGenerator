@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2127e0c-11a3-4508-8c91-5bc4762d2e95" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AssetsRefGenerator.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/checker/AssetsChecker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/checker/ICheck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/checker/ProjChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README_zh.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_zh.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/AssetsRefGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/AssetsRefGenerator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,6 +41,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="GenerateAntBuildDialog.backupFiles" value="true" />
+    <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
+    <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
+    <property name="GenerateAntBuildDialog.outputFileNameProperty" value="assetsrefgenerator" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -62,6 +58,7 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -104,8 +101,18 @@
       <workItem from="1588731925125" duration="870000" />
       <workItem from="1588732799273" duration="369000" />
       <workItem from="1588733175993" duration="655000" />
-      <workItem from="1588734062765" duration="13313000" />
+      <workItem from="1588734062765" duration="13801000" />
+      <workItem from="1588757935074" duration="115000" />
+      <workItem from="1588758071973" duration="1535000" />
     </task>
+    <task id="LOCAL-00001" summary="1、忽略.DS_Store文件；支持Module等其他类型Flutter工程；3、提炼工程结构检查代码；4、添加工程配置文件">
+      <created>1588757574228</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1588757574228</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +154,12 @@
       </set>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="1、忽略.DS_Store文件；支持Module等其他类型Flutter工程；3、提炼工程结构检查代码；4、添加工程配置文件" />
+    <option name="LAST_COMMIT_MESSAGE" value="1、忽略.DS_Store文件；支持Module等其他类型Flutter工程；3、提炼工程结构检查代码；4、添加工程配置文件" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588734123873">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -160,22 +173,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="806" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588731387926" />
-    <state x="560" y="116" key="CommitChangelistDialog2" timestamp="1588757381982">
+    <state x="560" y="116" key="CommitChangelistDialog2" timestamp="1588757573301">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="560" y="116" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588757381982" />
+    <state x="560" y="116" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588757573301" />
     <state width="407" height="466" key="DebuggerActiveHint" timestamp="1588754530085">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="407" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1588754530085" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1588757371711">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1588757443241">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588757371711" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1588732630807">
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588757443241" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1588758037663">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588732630807" />
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588758037663" />
     <state width="1877" height="296" key="GridCell.Tab.0.bottom" timestamp="1588754567388">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -224,10 +237,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="296" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588754567260" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1588732791984">
+    <state x="440" y="94" key="SettingsEditor" timestamp="1588758725105">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588732791984" />
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588758725105" />
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1588758077418">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588758077418" />
     <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588757424941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
