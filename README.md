@@ -14,6 +14,10 @@ Makes it easier to use assets in [Flutter][1], just like using R.drawable.xxx in
  - Now you'll see the pubspec.yaml file has been updated and a res.dart file also has been created under lib.
 
 ## Change-notes
+1.0.1
+ - Support Flutter Module, Package and Plugin project.
+ - Ignore .DS_Store file on Mac OS X.
+ 
 1.0.0
  - Implement basic functions.
  

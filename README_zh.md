@@ -16,6 +16,10 @@
  - 打开 pubspec.yaml 看一下，你将看到文件中已经自动添加了资源文件的声明。并且在lib目录下生成了一个res.dart文件，其中包含资源文件的 String 类型使用定义。
 
 ## 更新日志
+1.0.1
+ - 支持Flutter Module、Package、Plugin项目类型.
+ - 忽略Mac OS X 上的 .DS_Store 文件.
+ 
 1.0.0
  - 初始版本功能添加和完善
 
