@@ -88,18 +88,27 @@ public class AssetsRefGenerator extends AnAction {
     private List<String> getAssets(String path) {
         System.out.println("Scanning asset files under asset, assets and images...");
         assetsNames.clear();
+        namedAssets.clear();
         List<String> assetsDirs = assetsChecker.getAssetsDirs();
         List<String> assets = new ArrayList<>();
         for (String name : assetsDirs) {
             File dir = new File(path, name);
-            getAssets(assets, dir, name);
+            getAssets(assets, dir, name, false);
         }
         return assets;
     }
 
     private HashSet<String> assetsNames = new HashSet<>();
+    private HashMap<String, String> namedAssets = new HashMap<>();
 
-    private void getAssets(List<String> assets, File dir, String prefix) {
+    /**
+     * 遍历资源目录，生成资源声明
+     * @param assets 资源声明集合
+     * @param dir 目录
+     * @param prefix 当前目录的资源路径前缀
+     * @param inMultiRatioDir 当前是否在 2.0x 3.0x 等多像素比目录下，用于判断重名资源层级
+     */
+    private void getAssets(List<String> assets, File dir, String prefix, boolean inMultiRatioDir) {
         if (!dir.exists() || !dir.isDirectory()) {
             return;
         }
@@ -130,18 +139,43 @@ public class AssetsRefGenerator extends AnAction {
         for (File f : fList) {
             String name = f.getName();
             if (f.isFile()) {
-                // 如果添加过同名的，则认为当前资源为一个变体，不再添加
+                // 变体处理：在相邻子目录中查找具有相同名称的任何文件，如果添加过同名的，则认为当前资源为一个变体，不再添加。
+                // 但非相邻子目录中的同名文件，不算变体，如：/imageStyle1/1.png 和 /imageStyle2/1.png
+                String asset = "    - " + prefix + "/" + name;
+                String nameKey = name.split("\\.")[0];
                 if (!assetsNames.contains(name)) {
+                    namedAssets.put(asset, nameKey);
                     assetsNames.add(name);
-                    String asset = "    - " + prefix + "/" + name;
                     assets.add(asset);
+                    System.out.println(asset);
+                } else {
+                    String existedAsset = "";
+                    for (String s : assets) {
+                        if (s.contains(name)) {
+                            existedAsset = s;
+                            break;
+                        }
+                    }
+                    int existedDepth = existedAsset.split("/").length;
+                    String[] newAsset = asset.split("/");
+                    int newDepth = newAsset.length;
+                    newDepth = inMultiRatioDir ? newDepth + 1 : newDepth;
+                    if (newDepth > existedDepth) {
+                        // 同名且有更深的路径层级，认为是变体
+                        continue;
+                    }
+                    nameKey = nameKey.trim().replaceAll(" ", "_");
+                    String namePrefix = prefix.replaceAll(" ", "_").replaceAll("/", "_");
+                    namedAssets.put(asset, namePrefix + "_" + nameKey);
+                    assets.add(asset);
+                    System.out.println(asset);
                 }
             } else {
                 // 2.0x 3.0x 等多分辨率目录处理
                 if (name.matches("^[1-9](\\.\\d)x$")) {
-                    getAssets(assets, f, prefix);
+                    getAssets(assets, f, prefix, true);
                 } else {
-                    getAssets(assets, f, prefix + "/" + name);
+                    getAssets(assets, f, prefix + "/" + name, false);
                 }
             }
         }
@@ -276,6 +310,7 @@ public class AssetsRefGenerator extends AnAction {
             writer.write("class Res {");
             writer.newLine();
             List<String> packages = new ArrayList<>();
+            List<String> assetDefines = new ArrayList<>();
             for (String out : assets) {
                 String assetPath = out.replaceAll(" {2,}- ", "").trim();
                 // 处理其他 package 的资源文件声明
@@ -291,8 +326,16 @@ public class AssetsRefGenerator extends AnAction {
                     }
                     assetPath = assetPath.replaceFirst("packages/[a-z_]+/", "");
                 }
-                String name = out.substring(out.lastIndexOf("/") + 1).split("\\.")[0];
-                writer.write("  static const String " + name + " = \"" + assetPath + "\";");
+                String name = namedAssets.get(out);
+                if (name == null) {
+                    name = out.substring(out.lastIndexOf("/") + 1).split("\\.")[0];
+                }
+                assetDefines.add("  static const String " + name + " = \"" + assetPath + "\";");
+            }
+
+            assetDefines.sort(String::compareToIgnoreCase);
+            for (String s : assetDefines) {
+                writer.write(s);
                 writer.newLine();
             }
             writer.write("}");
