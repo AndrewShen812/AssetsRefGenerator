@@ -330,6 +330,8 @@ public class AssetsRefGenerator extends AnAction {
                 if (name == null) {
                     name = out.substring(out.lastIndexOf("/") + 1).split("\\.")[0];
                 }
+                // 替换连字符'-'为下划线'_'
+                name = name.replace('-', '_');
                 assetDefines.add("  static const String " + name + " = \"" + assetPath + "\";");
             }
 
