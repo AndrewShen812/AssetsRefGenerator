@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2127e0c-11a3-4508-8c91-5bc4762d2e95" name="Default Changelist" comment="">
+    <list default="true" id="f2127e0c-11a3-4508-8c91-5bc4762d2e95" name="Default Changelist" comment="v1.0.1 发布">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/Dart.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/icons/pluginIcon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/Icons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/AssetUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReference.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReferenceContributor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetDocumentationProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetReferenceContributor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetDocumentationProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetReferenceContributor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/AssetsRefGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/AssetsRefGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AssetsRefGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AssetsRefGenerator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +39,14 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -35,7 +60,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -43,10 +67,13 @@
     <property name="GenerateAntBuildDialog.enableUiFormCompile" value="true" />
     <property name="GenerateAntBuildDialog.forceTargetJdk" value="true" />
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="assetsrefgenerator" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -56,17 +83,52 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="http.proxy" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/libs" />
+      <recent name="$PROJECT_DIR$/resources/icons" />
+      <recent name="D:\AssetsRefGenerator" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\AssetsRefGenerator\release" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\AssetsRefGenerator" />
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.shenyong.flutter.psi.yaml" />
+      <recent name="com.shenyong.flutter.psi.dart" />
+      <recent name="com.shenyong.flutter.psi" />
+      <recent name="com.shenyong.flutter" />
+      <recent name="psi" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Plugin.AssetsRefGenerator">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.shenyong.flutter.Test" />
+      <module name="AssetsRefGenerator" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.shenyong.flutter.psi.yaml.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AssetsRefGenerator" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="AssetsRefGenerator" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -ea" />
@@ -87,7 +149,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Test" />
+      </list>
+    </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -106,6 +174,15 @@
       <workItem from="1588757935074" duration="115000" />
       <workItem from="1588758071973" duration="3809000" />
       <workItem from="1588817045750" duration="12796000" />
+      <workItem from="1588901846114" duration="197000" />
+      <workItem from="1597305669274" duration="597000" />
+      <workItem from="1626684262372" duration="1431000" />
+      <workItem from="1626740876805" duration="1469000" />
+      <workItem from="1626742481912" duration="13415000" />
+      <workItem from="1627093914759" duration="375000" />
+      <workItem from="1627115694383" duration="2294000" />
+      <workItem from="1627258718850" duration="746000" />
+      <workItem from="1627259474581" duration="4140000" />
     </task>
     <task id="LOCAL-00001" summary="1、忽略.DS_Store文件；支持Module等其他类型Flutter工程；3、提炼工程结构检查代码；4、添加工程配置文件">
       <created>1588757574228</created>
@@ -121,11 +198,18 @@
       <option name="project" value="LOCAL" />
       <updated>1588759705034</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fix(#8): 解决：当资源文件名包含连字符'-'时，生成的res.dart中常量名也有连字符，显示语法错误。">
+      <created>1626771715801</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1626771715801</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -155,129 +239,40 @@
             </State>
           </value>
         </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
       </map>
     </option>
-    <option name="OPEN_TABS">
-      <set>
-        <option value="1" />
-      </set>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="1、忽略.DS_Store文件；支持Module等其他类型Flutter工程；3、提炼工程结构检查代码；4、添加工程配置文件" />
     <MESSAGE value="v1.0.1 发布" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.0.1 发布" />
+    <MESSAGE value="fix(#8): 解决：当资源文件名包含连字符'-'时，生成的res.dart中常量名也有连字符，显示语法错误。" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix(#8): 解决：当资源文件名包含连字符'-'时，生成的res.dart中常量名也有连字符，显示语法错误。" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588734123873">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588734123873" />
-    <state x="1104" y="237" key="#com.intellij.ide.util.MemberChooser" timestamp="1588752512337">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1104" y="237" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1588752512337" />
-    <state x="806" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1588731387926">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="806" y="409" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588731387926" />
-    <state x="560" y="116" key="CommitChangelistDialog2" timestamp="1588759704092">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="560" y="116" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1588759704092" />
-    <state width="407" height="466" key="DebuggerActiveHint" timestamp="1588754530085">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="407" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1588754530085" />
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1588834136912">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588834136912" />
-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1588758037663">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588758037663" />
-    <state width="1877" height="175" key="GridCell.Tab.0.bottom" timestamp="1588834474654">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="175" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588834474654" />
-    <state width="1877" height="175" key="GridCell.Tab.0.center" timestamp="1588834474654">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="175" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588834474654" />
-    <state width="1877" height="175" key="GridCell.Tab.0.left" timestamp="1588834474654">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="175" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588834474654" />
-    <state width="1877" height="175" key="GridCell.Tab.0.right" timestamp="1588834474654">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="175" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588834474654" />
-    <state width="1877" height="175" key="GridCell.Tab.1.bottom" timestamp="1588834474654">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="175" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588834474654" />
-    <state width="1877" height="175" key="GridCell.Tab.1.center" timestamp="1588834474654">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="175" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588834474654" />
-    <state width="1877" height="175" key="GridCell.Tab.1.left" timestamp="1588834474654">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="175" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588834474654" />
-    <state width="1877" height="175" key="GridCell.Tab.1.right" timestamp="1588834474654">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="175" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588834474654" />
-    <state width="1877" height="296" key="GridCell.Tab.2.bottom" timestamp="1588754567260">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="296" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1588754567260" />
-    <state width="1877" height="296" key="GridCell.Tab.2.center" timestamp="1588754567260">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="296" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1588754567260" />
-    <state width="1877" height="296" key="GridCell.Tab.2.left" timestamp="1588754567260">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="296" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1588754567260" />
-    <state width="1877" height="296" key="GridCell.Tab.2.right" timestamp="1588754567260">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="296" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1588754567260" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1588758725105">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588758725105" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1588762502907">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588762502907" />
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1588758077418">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="640" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588758077418" />
-    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1588757424941">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="752" y="437" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1588757424941" />
-    <state x="769" y="361" key="git4idea.ui.GitTagDialog" timestamp="1588762483686">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="769" y="361" key="git4idea.ui.GitTagDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588762483686" />
-    <state width="741" height="498" key="javadoc.popup.new" timestamp="1588753989437">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="741" height="498" key="javadoc.popup.new/0.0.1920.1040@0.0.1920.1040" timestamp="1588753989437" />
-    <state x="334" y="117" key="new project wizard" timestamp="1588733073656">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="334" y="117" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1588733073656" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588756966259">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588756966259" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NoClassDefFoundError" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.AssertionError" package="java.lang" />
+          <option name="timeStamp" value="7" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

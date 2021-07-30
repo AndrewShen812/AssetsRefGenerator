@@ -61,9 +61,17 @@
   <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
        on how to target different products -->
   <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.lang</depends>
+  <depends>com.intellij.platform.images</depends>
+  <depends>org.jetbrains.plugins.yaml</depends>
+  <depends>Dart</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
+    <psi.referenceContributor language="Dart" implementation="com.shenyong.flutter.psi.dart.DartAssetReferenceContributor" />
+    <lang.documentationProvider language="Dart" implementationClass="com.shenyong.flutter.psi.dart.DartAssetDocumentationProvider" />
+    <psi.referenceContributor language="yaml" implementation="com.shenyong.flutter.psi.yaml.YamlAssetReferenceContributor" />
+    <lang.documentationProvider language="yaml" implementationClass="com.shenyong.flutter.psi.yaml.YamlAssetDocumentationProvider" />
   </extensions>
 
   <actions>
