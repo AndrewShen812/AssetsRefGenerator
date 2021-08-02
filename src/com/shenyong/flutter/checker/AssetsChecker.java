@@ -21,9 +21,10 @@ public class AssetsChecker implements ICheck {
     }
 
     @Override
-    public boolean check(String path) {
+    public CheckResult check(String path) {
+        CheckResult result = new CheckResult();
         if (path == null || path.isEmpty()) {
-            return false;
+            return result;
         }
 
         File dir = new File(path);
@@ -34,7 +35,8 @@ public class AssetsChecker implements ICheck {
                 cnt++;
             }
         }
-        return cnt > 0;
+        result.isOk = cnt > 0;
+        return result;
     }
 
     public List<String> getAssetsDirs() {

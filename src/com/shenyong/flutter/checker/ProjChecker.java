@@ -23,21 +23,26 @@ public class ProjChecker implements ICheck {
     }
 
     @Override
-    public boolean check(String path) {
+    public CheckResult check(String path) {
+        CheckResult result = new CheckResult();
         if (path == null || path.isEmpty()) {
-            return false;
+            return result;
         }
         File dir = new File(path);
         if (!dir.exists() || !dir.isDirectory()) {
-            return false;
+            return result;
         }
         String[] files = Objects.requireNonNull(dir.list());
         int cnt = 0;
+        ArrayList<String> missingFiles = new ArrayList<>(checkFiles);
         for (String f : files) {
             if (checkFiles.contains(f)) {
                 cnt++;
+                missingFiles.remove(f);
             }
         }
-        return cnt == checkFiles.size();
+        result.isOk = cnt == checkFiles.size();
+        result.missingFiles.addAll(missingFiles);
+        return result;
     }
 }

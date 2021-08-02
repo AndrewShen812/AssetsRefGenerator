@@ -30,6 +30,7 @@ import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
 import com.shenyong.flutter.checker.AssetsChecker;
+import com.shenyong.flutter.checker.ICheck;
 import com.shenyong.flutter.checker.ProjChecker;
 
 import java.io.*;
@@ -64,11 +65,17 @@ public class AssetsRefGenerator extends AnAction {
     public void actionPerformed(AnActionEvent e) {
         Project project = e.getData(PlatformDataKeys.PROJECT);
         String path = Objects.requireNonNull(project).getBasePath();
-        if (!projChecker.check(path)) {
-            showErrMsg("Current directory does not seem to be a valid Flutter project directory.");
+        ICheck.CheckResult result = projChecker.check(path);
+        if (!result.isOk) {
+            StringBuilder sb = new StringBuilder();
+            for (String f : result.missingFiles) {
+                sb.append(f).append("\n");
+            }
+            showErrMsg("Current directory does not seem to be a valid Flutter project directory. Files not found:\n" +
+                    sb.toString());
             return;
         }
-        if (!assetsChecker.check(path)) {
+        if (!assetsChecker.check(path).isOk) {
             showErrMsg("No asset directory named asset, assets or images was found.");
             return;
         }

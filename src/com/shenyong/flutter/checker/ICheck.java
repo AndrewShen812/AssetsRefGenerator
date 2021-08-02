@@ -1,6 +1,8 @@
 package com.shenyong.flutter.checker;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author ShenYong
@@ -13,5 +15,10 @@ public interface ICheck {
      * @param path 待检查路径
      * @return 校验结果，true 为 通过
      */
-    boolean check(String path);
+    CheckResult check(String path);
+
+    class CheckResult {
+        public boolean isOk = false;
+        public List<String> missingFiles = new ArrayList<>();
+    }
 }
