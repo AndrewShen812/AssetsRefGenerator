@@ -3,7 +3,6 @@ package com.shenyong.flutter.psi.yaml;
 import com.intellij.psi.PsiElement;
 import com.shenyong.flutter.psi.FlutterAssetReference;
 import com.shenyong.flutter.psi.FlutterAssetReferenceContributor;
-import org.jetbrains.yaml.YAMLLanguage;
 import org.jetbrains.yaml.psi.impl.YAMLPlainTextImpl;
 
 /**

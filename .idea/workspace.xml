@@ -4,23 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2127e0c-11a3-4508-8c91-5bc4762d2e95" name="Default Changelist" comment="v1.0.1 发布">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/Dart.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/icons/pluginIcon.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/Icons.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/AssetUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReference.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReferenceContributor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetDocumentationProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetReferenceContributor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetDocumentationProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetReferenceContributor.java" afterDir="false" />
+    <list default="true" id="f2127e0c-11a3-4508-8c91-5bc4762d2e95" name="Default Changelist" comment="feature: 增加不符合Flutter工程结构时缺失的文件列表提示。">
+      <change afterPath="$PROJECT_DIR$/resources/icons/sdk_12.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/image/FastImageInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetLineMarkerProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssetsRefGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AssetsRefGenerator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libs/Dart.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/Icons.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/Icons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/AssetUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/AssetUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReference.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReferenceContributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReferenceContributor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetDocumentationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetDocumentationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetDocumentationProvider.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetReferenceContributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetReferenceContributor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +71,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/icons" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -84,22 +82,22 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="http.proxy" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/libs" />
       <recent name="$PROJECT_DIR$/resources/icons" />
+      <recent name="$PROJECT_DIR$/libs" />
       <recent name="D:\AssetsRefGenerator" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\AssetsRefGenerator\release" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.shenyong.flutter.psi" />
       <recent name="com.shenyong.flutter.psi.yaml" />
       <recent name="com.shenyong.flutter.psi.dart" />
-      <recent name="com.shenyong.flutter.psi" />
       <recent name="com.shenyong.flutter" />
       <recent name="psi" />
     </key>
@@ -205,7 +203,21 @@
       <option name="project" value="LOCAL" />
       <updated>1626771715801</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feature: 1、dart及yaml文件对应的声明支持ctrl+clickable；2、yaml 鼠标悬停弹窗显示图片预览。">
+      <created>1627625674649</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1627625674649</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feature: 增加不符合Flutter工程结构时缺失的文件列表提示。">
+      <created>1627868285435</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1627868285435</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,7 +271,9 @@
     <MESSAGE value="1、忽略.DS_Store文件；支持Module等其他类型Flutter工程；3、提炼工程结构检查代码；4、添加工程配置文件" />
     <MESSAGE value="v1.0.1 发布" />
     <MESSAGE value="fix(#8): 解决：当资源文件名包含连字符'-'时，生成的res.dart中常量名也有连字符，显示语法错误。" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(#8): 解决：当资源文件名包含连字符'-'时，生成的res.dart中常量名也有连字符，显示语法错误。" />
+    <MESSAGE value="feature: 1、dart及yaml文件对应的声明支持ctrl+clickable；2、yaml 鼠标悬停弹窗显示图片预览。" />
+    <MESSAGE value="feature: 增加不符合Flutter工程结构时缺失的文件列表提示。" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: 增加不符合Flutter工程结构时缺失的文件列表提示。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,0 +1,62 @@
+package com.shenyong.flutter.psi;
+
+import com.intellij.lang.documentation.AbstractDocumentationProvider;
+import com.intellij.lang.documentation.DocumentationMarkup;
+import com.intellij.openapi.vfs.VirtualFile;
+import com.intellij.psi.PsiElement;
+import com.shenyong.flutter.image.FastImageInfo;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
+import java.io.File;
+import java.io.IOException;
+
+public class FlutterAssetDocumentationProvider extends AbstractDocumentationProvider {
+    @Override
+    public @Nullable String generateDoc(@NotNull PsiElement element, @Nullable PsiElement originalElement) {
+        if (originalElement == null) {
+            return "Unable to get doc for " + element.getText();
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(DocumentationMarkup.DEFINITION_START);
+        sb.append(originalElement.getText());
+        sb.append(DocumentationMarkup.DEFINITION_END);
+        sb.append(DocumentationMarkup.CONTENT_START);
+        VirtualFile assetFile = AssetUtil.getAssetVirtualFile(originalElement);
+        if (assetFile != null) {
+            File imgFile = new File(assetFile.getPath());
+            String uri = imgFile.toURI().toString();
+            FastImageInfo imageInfo = null;
+            try {
+                imageInfo = new FastImageInfo(imgFile);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (imageInfo != null) {
+                System.out.println(imageInfo.toString());
+            }
+            // TODO: 2021/7/30  资源变体处理
+            sb.append(assetFile.getPath() +
+                    "<div>" +
+                    "  <img width=\"700\" height=\"700\" src=\"" + uri + "\">" +
+                    "</div>");
+        }
+        sb.append(DocumentationMarkup.CONTENT_END);
+        sb.append(DocumentationMarkup.SECTIONS_START);
+        if (assetFile != null) {
+            addKeyValueSection("path:", assetFile.getPath(), sb);
+            addKeyValueSection("uri:", (new File(assetFile.getPath())).toURI().toString(), sb);
+        }
+        sb.append(DocumentationMarkup.SECTIONS_END);
+        return sb.toString();
+    }
+
+    private void addKeyValueSection(String key, String value, StringBuilder sb) {
+        sb.append(DocumentationMarkup.SECTION_HEADER_START);
+        sb.append(key);
+        sb.append(DocumentationMarkup.SECTION_SEPARATOR);
+        sb.append("<p>");
+        sb.append(value);
+        sb.append(DocumentationMarkup.SECTION_END);
+    }
+}
