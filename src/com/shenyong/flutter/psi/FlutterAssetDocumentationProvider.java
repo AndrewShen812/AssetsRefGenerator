@@ -1,62 +1,72 @@
 package com.shenyong.flutter.psi;
 
 import com.intellij.lang.documentation.AbstractDocumentationProvider;
-import com.intellij.lang.documentation.DocumentationMarkup;
 import com.intellij.openapi.vfs.VirtualFile;
 import com.intellij.psi.PsiElement;
 import com.shenyong.flutter.image.FastImageInfo;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.yaml.psi.impl.YAMLPlainTextImpl;
 
 import java.io.File;
 import java.io.IOException;
 
 public class FlutterAssetDocumentationProvider extends AbstractDocumentationProvider {
+
+    /**
+     *
+     * @param element
+     * @param originalElement dart或yaml中的原始声明字符串
+     * @return
+     */
     @Override
     public @Nullable String generateDoc(@NotNull PsiElement element, @Nullable PsiElement originalElement) {
         if (originalElement == null) {
-            return "Unable to get doc for " + element.getText();
+            return null;
+        }
+        String originalText = originalElement.getText();
+        boolean isValidDartEle = element instanceof YAMLPlainTextImpl;
+        boolean isValidYamlEle = originalText.matches("^asset(s)?(/([-\\w]+|[1-9]\\.\\dx))*/[-\\w]+\\.(jp(e)?g|png|webp|bmp)$");
+        if (!isValidDartEle && !isValidYamlEle) {
+            return null;
+        }
+        VirtualFile assetFile = AssetUtil.getAssetVirtualFile(originalElement);
+        if (assetFile == null) {
+            return null;
+        }
+        File imgFile = new File(assetFile.getPath());
+        String uri = imgFile.toURI().toString();
+        FastImageInfo imageInfo = null;
+        try {
+            imageInfo = new FastImageInfo(imgFile);
+        } catch (IOException e) {
+            return null;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(DocumentationMarkup.DEFINITION_START);
-        sb.append(originalElement.getText());
-        sb.append(DocumentationMarkup.DEFINITION_END);
-        sb.append(DocumentationMarkup.CONTENT_START);
-        VirtualFile assetFile = AssetUtil.getAssetVirtualFile(originalElement);
-        if (assetFile != null) {
-            File imgFile = new File(assetFile.getPath());
-            String uri = imgFile.toURI().toString();
-            FastImageInfo imageInfo = null;
-            try {
-                imageInfo = new FastImageInfo(imgFile);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            if (imageInfo != null) {
-                System.out.println(imageInfo.toString());
-            }
-            // TODO: 2021/7/30  资源变体处理
-            sb.append(assetFile.getPath() +
-                    "<div>" +
-                    "  <img width=\"700\" height=\"700\" src=\"" + uri + "\">" +
-                    "</div>");
+        sb.append("<div class='definition'><pre>");
+        if (isValidDartEle) {
+            sb.append(element.getText());
+        } else {
+            sb.append(originalText);
         }
-        sb.append(DocumentationMarkup.CONTENT_END);
-        sb.append(DocumentationMarkup.SECTIONS_START);
-        if (assetFile != null) {
-            addKeyValueSection("path:", assetFile.getPath(), sb);
-            addKeyValueSection("uri:", (new File(assetFile.getPath())).toURI().toString(), sb);
-        }
-        sb.append(DocumentationMarkup.SECTIONS_END);
+        sb.append("</pre></div");
+        sb.append("<div class='content' width=\"").append(imageInfo.getWidth()).append("\">");
+        // TODO: 2021/7/30  资源变体处理
+        sb.append("  <img width=\"").append(imageInfo.getWidth()).append("\" height=\"")
+                .append(imageInfo.getHeight()).append("\" src=\"").append(uri).append("\">");
+        sb.append("</div>");
+        sb.append("<table class='sections'>");
+        addKeyValueSection("size: ", imageInfo.getWidth() + "x" + imageInfo.getHeight() + " px", sb);
+        sb.append("</table>");
         return sb.toString();
     }
 
     private void addKeyValueSection(String key, String value, StringBuilder sb) {
-        sb.append(DocumentationMarkup.SECTION_HEADER_START);
+        sb.append("<tr><td valign='top' class='section'><p>");
         sb.append(key);
-        sb.append(DocumentationMarkup.SECTION_SEPARATOR);
+        sb.append("</td><td valign='top'>");
         sb.append("<p>");
         sb.append(value);
-        sb.append(DocumentationMarkup.SECTION_END);
+        sb.append("</td>");
     }
 }

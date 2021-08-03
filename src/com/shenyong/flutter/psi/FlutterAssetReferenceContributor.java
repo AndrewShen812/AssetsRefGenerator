@@ -1,12 +1,10 @@
 package com.shenyong.flutter.psi;
 
 import com.intellij.patterns.ElementPattern;
-import com.intellij.patterns.PlatformPatterns;
 import com.intellij.patterns.StandardPatterns;
 import com.intellij.patterns.StringPattern;
 import com.intellij.psi.*;
 import com.intellij.util.ProcessingContext;
-import com.jetbrains.lang.dart.psi.impl.DartStringLiteralExpressionImpl;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -21,17 +19,19 @@ public abstract class FlutterAssetReferenceContributor extends PsiReferenceContr
 
     public abstract Class<? extends PsiElement> provideAssetStringLiteralClass();
 
+    public abstract ElementPattern<? extends PsiElement> provideElementPatterns();
+
     public abstract FlutterAssetReference createAssetReference(PsiElement element);
 
     @Override
     public void registerReferenceProviders(@NotNull PsiReferenceRegistrar psiReferenceRegistrar) {
-        ElementPattern<? extends PsiElement> assetPattern = PlatformPatterns
-                .psiElement(provideAssetStringLiteralClass()).withText(ASSET_STRING);
-
-        psiReferenceRegistrar.registerReferenceProvider(assetPattern, new PsiReferenceProvider() {
+        psiReferenceRegistrar.registerReferenceProvider(provideElementPatterns(), new PsiReferenceProvider() {
             @Override
             public @NotNull PsiReference[] getReferencesByElement(@NotNull PsiElement element, @NotNull ProcessingContext context) {
                 FlutterAssetReference reference = createAssetReference(element);
+                if (reference == null) {
+                    return PsiReference.EMPTY_ARRAY;
+                }
                 return new PsiReference[] { reference };
             }
         });

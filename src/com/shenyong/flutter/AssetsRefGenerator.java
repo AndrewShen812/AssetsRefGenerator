@@ -55,7 +55,7 @@ import java.util.regex.Pattern;
 public class AssetsRefGenerator extends AnAction {
 
     private static final String PUBSPEC = "pubspec.yaml";
-    private static final String RES_FILE = "res.dart";
+    public static final String RES_FILE = "res.dart";
     private static final String MAC_OS_DS_STORE = ".DS_Store";
 
     private ProjChecker projChecker = new ProjChecker();

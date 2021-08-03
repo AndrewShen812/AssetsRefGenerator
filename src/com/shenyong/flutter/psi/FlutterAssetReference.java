@@ -1,18 +1,14 @@
 package com.shenyong.flutter.psi;
 
-import com.intellij.openapi.project.Project;
 import com.intellij.openapi.util.TextRange;
-import com.intellij.psi.*;
-import com.intellij.psi.search.FilenameIndex;
-import com.intellij.psi.search.GlobalSearchScope;
+import com.intellij.psi.ElementManipulators;
+import com.intellij.psi.PsiBinaryFile;
+import com.intellij.psi.PsiElement;
+import com.intellij.psi.PsiReferenceBase;
 import com.intellij.util.IncorrectOperationException;
-import com.jetbrains.lang.dart.psi.DartStringLiteralExpression;
-import com.jetbrains.lang.dart.psi.impl.DartStringLiteralExpressionImpl;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-import org.jetbrains.yaml.psi.impl.YAMLPlainTextImpl;
 
-public class FlutterAssetReference extends PsiReferenceBase<PsiElement> {
+public abstract class FlutterAssetReference extends PsiReferenceBase<PsiElement> {
 
     // eg: doge.jpeg
     private String fileName;
@@ -26,24 +22,6 @@ public class FlutterAssetReference extends PsiReferenceBase<PsiElement> {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    @Override
-    public @Nullable PsiElement resolve() {
-        if (myElement instanceof DartStringLiteralExpressionImpl) {
-            // 这里本来应该直接返回图片文件的PsiFile，这样ctrl+click直接打开图片文件体验最好，
-            // 但Dart插件内的DocumentationProvider不支持解析二进制类型文件：
-            // FileOffsetsManager.loadLineOffsets(@NotNull VirtualFile file):
-            //     assert !file.getFileType().isBinary();
-            // 所以折中处理，Dart文件中的资源引用指向yaml中对应声明的PsiElement
-            return AssetUtil.findYamlReference(myElement);
-        }
-        if (myElement instanceof YAMLPlainTextImpl) {
-            Project project = myElement.getProject();
-            PsiFile[] psiFiles = FilenameIndex.getFilesByName(project, fileName, GlobalSearchScope.allScope(project));
-            return psiFiles.length > 0 ? psiFiles[0] : null;
-        }
-        return null;
     }
 
     @Override
