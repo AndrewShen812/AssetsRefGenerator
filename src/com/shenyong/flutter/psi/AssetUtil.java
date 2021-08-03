@@ -76,7 +76,7 @@ public class AssetUtil {
                     return e;
                 }
             }
-            if (dartText.equals(e.getText())) {
+            if (dartText.equals(yamlText) || yamlText.endsWith(name)) {
                 return e;
             }
         }
