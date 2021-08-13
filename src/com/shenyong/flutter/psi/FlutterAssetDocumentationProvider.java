@@ -26,7 +26,7 @@ public class FlutterAssetDocumentationProvider extends AbstractDocumentationProv
         }
         String originalText = originalElement.getText();
         boolean isValidDartEle = element instanceof YAMLPlainTextImpl;
-        boolean isValidYamlEle = originalText.matches("^asset(s)?(/([-\\w]+|[1-9]\\.\\dx))*/[-\\w]+\\.(jp(e)?g|png|webp|bmp)$");
+        boolean isValidYamlEle = originalText.matches("^asset(s)?(/([-\\w]+|[1-9]\\.\\dx))*/[-\\w]+\\.(jp(e)?g|(9\\.)?png|webp|bmp)$");
         if (!isValidDartEle && !isValidYamlEle) {
             return null;
         }
@@ -49,11 +49,22 @@ public class FlutterAssetDocumentationProvider extends AbstractDocumentationProv
         } else {
             sb.append(originalText);
         }
+        int width = imageInfo.getWidth();
+        int height = imageInfo.getHeight();
+        if (Math.max(width, height) > 1000) {
+            width /= 2;
+            height /= 2;
+        }
         sb.append("</pre></div");
-        sb.append("<div class='content' width=\"").append(imageInfo.getWidth()).append("\">");
+//        sb.append("<div class='content' width=\"").append(width).append("px\">");
+//        sb.append("<div class='content'>");
+        sb.append("<div style=\"background-color:#ff0000;\" class='content' width=\"").append(width).append("px\" height=\"")
+                .append(height).append("px\" src=\"").append(uri).append("\">");
         // TODO: 2021/7/30  资源变体处理
-        sb.append("  <img width=\"").append(imageInfo.getWidth()).append("\" height=\"")
-                .append(imageInfo.getHeight()).append("\" src=\"").append(uri).append("\">");
+        // TODO: 2021/8/13  Mac本机屏幕显示正常，但在外接的分辨率更低的扩展显示器上，预览图片显示不全
+//        sb.append("  <img width=\"").append(width).append("px\" height=\"")
+//                .append(height).append("px\" src=\"").append(uri).append("\">");
+        sb.append("  <img src=\"").append(uri).append("\">");
         sb.append("</div>");
         sb.append("<table class='sections'>");
         addKeyValueSection("size: ", imageInfo.getWidth() + "x" + imageInfo.getHeight() + " px", sb);
