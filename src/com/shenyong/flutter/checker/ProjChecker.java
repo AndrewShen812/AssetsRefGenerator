@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 public class ProjChecker implements ICheck {
 
-    private ArrayList<String> checkFiles;
+    private final ArrayList<String> checkFiles;
 
     {
         checkFiles = new ArrayList<>();

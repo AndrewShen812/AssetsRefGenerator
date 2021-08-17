@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 public class AssetsChecker implements ICheck {
 
-    private ArrayList<String> assetFiles;
+    private final ArrayList<String> assetFiles;
 
     {
         assetFiles = new ArrayList<>();

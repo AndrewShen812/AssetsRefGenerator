@@ -11,7 +11,7 @@ Makes it easier to use assets in [Flutter][1], just like using R.drawable.xxx in
  - Open your Flutter project.
  - Create assets directory named asset, assets, or images, put your asset files in the directory.
  - Click the action button ![Image text](https://chinastyle812.github.io/AssetRefGenerator/genAssetRef.svg) in the Toolbar.
- - Now you'll see the pubspec.yaml file has been updated and a res.dart file also has been created under lib.
+ - Now you'll see the pubspec.yaml file has been updated, and a res.dart file also has been created under lib.
 
 ## Change-notes
 1.0.1

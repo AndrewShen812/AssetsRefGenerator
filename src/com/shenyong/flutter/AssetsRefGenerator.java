@@ -58,8 +58,8 @@ public class AssetsRefGenerator extends AnAction {
     public static final String RES_FILE = "res.dart";
     private static final String MAC_OS_DS_STORE = ".DS_Store";
 
-    private ProjChecker projChecker = new ProjChecker();
-    private AssetsChecker assetsChecker = new AssetsChecker();
+    private final ProjChecker projChecker = new ProjChecker();
+    private final AssetsChecker assetsChecker = new AssetsChecker();
 
     @Override
     public void actionPerformed(AnActionEvent e) {
@@ -72,7 +72,7 @@ public class AssetsRefGenerator extends AnAction {
                 sb.append(f).append("\n");
             }
             showErrMsg("Current directory does not seem to be a valid Flutter project directory. Files not found:\n" +
-                    sb.toString());
+                    sb);
             return;
         }
         if (!assetsChecker.check(path).isOk) {
@@ -105,8 +105,8 @@ public class AssetsRefGenerator extends AnAction {
         return assets;
     }
 
-    private HashSet<String> assetsNames = new HashSet<>();
-    private HashMap<String, String> namedAssets = new HashMap<>();
+    private final HashSet<String> assetsNames = new HashSet<>();
+    private final HashMap<String, String> namedAssets = new HashMap<>();
 
     /**
      * 遍历资源目录，生成资源声明
@@ -153,8 +153,6 @@ public class AssetsRefGenerator extends AnAction {
                 if (!assetsNames.contains(name)) {
                     namedAssets.put(asset, nameKey);
                     assetsNames.add(name);
-                    assets.add(asset);
-                    System.out.println(asset);
                 } else {
                     String existedAsset = "";
                     for (String s : assets) {
@@ -174,9 +172,9 @@ public class AssetsRefGenerator extends AnAction {
                     nameKey = nameKey.trim().replaceAll(" ", "_");
                     String namePrefix = prefix.replaceAll(" ", "_").replaceAll("/", "_");
                     namedAssets.put(asset, namePrefix + "_" + nameKey);
-                    assets.add(asset);
-                    System.out.println(asset);
                 }
+                assets.add(asset);
+                System.out.println(asset);
             } else {
                 // 2.0x 3.0x 等多分辨率目录处理
                 if (name.matches("^[1-9](\\.\\d)x$")) {
