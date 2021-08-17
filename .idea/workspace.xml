@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2127e0c-11a3-4508-8c91-5bc4762d2e95" name="Default Changelist" comment="fix: 添加yaml和dart编译时依赖库。">
+    <list default="true" id="f2127e0c-11a3-4508-8c91-5bc4762d2e95" name="Default Changelist" comment="feature: 支持 Res.xxx 引用显示 gutter icon。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/icons/pluginIcon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/icons/sdk_12.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/AssetsRefGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/AssetsRefGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/Icons.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/checker/AssetsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/checker/AssetsChecker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/AssetUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/AssetUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetDocumentationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetDocumentationProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReference.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetLineMarkerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetLineMarkerProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetReference.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetReferenceContributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetReferenceContributor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetLineMarkerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetLineMarkerProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetReference.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetReferenceContributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetReferenceContributor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +41,7 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedIndex" value="5" />
+    <option name="selectedIndex" value="9" />
   </component>
   <component name="ProjectId" id="1bVxuLSGZ6wtqOleOUSxSrwLq7P" />
   <component name="ProjectLevelVcsManager">
@@ -267,7 +251,35 @@
       <option name="project" value="LOCAL" />
       <updated>1628827863765</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="feature: dart支持ctrl+click直接打开图片；重命名关联完善。">
+      <created>1629170732091</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1629170732091</updated>
+    </task>
+    <task id="LOCAL-00013" summary="fix: static code inspect issues。">
+      <created>1629171236398</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1629171236398</updated>
+    </task>
+    <task id="LOCAL-00014" summary="fix: static code inspect issues。">
+      <created>1629171245383</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1629171245383</updated>
+    </task>
+    <task id="LOCAL-00015" summary="feature: 支持 Res.xxx 引用显示 gutter icon。">
+      <created>1629184795627</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1629184795627</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -339,7 +351,10 @@
     <MESSAGE value="fix: .9格式图片字符串支持。" />
     <MESSAGE value="fix: 图片预览调试。" />
     <MESSAGE value="fix: 添加yaml和dart编译时依赖库。" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 添加yaml和dart编译时依赖库。" />
+    <MESSAGE value="feature: dart支持ctrl+click直接打开图片；重命名关联完善。" />
+    <MESSAGE value="fix: static code inspect issues。" />
+    <MESSAGE value="feature: 支持 Res.xxx 引用显示 gutter icon。" />
+    <option name="LAST_COMMIT_MESSAGE" value="feature: 支持 Res.xxx 引用显示 gutter icon。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

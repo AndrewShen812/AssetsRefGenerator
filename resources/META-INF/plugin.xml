@@ -18,9 +18,15 @@
   </P>
 
   <h2>Features</h2>
+  <b>1.1.0</b>
   <ul>
-    <li>Update assets declaration in pubspec.yaml automatically.</li>
+    <li>You can view the asset image by Click the gutter icon, or ctrl+click, or mouse hover, even you didn't generate the res.dart.</li>
+    <li>When rename a asset file, the related reference string will also be updated automatically.</li>
+  </ul>
+  <b>1.0.0</b>
+  <ul>
     <li>generate a <b>res.dart</b> file contained assets definition.</li>
+    <li>Update assets declaration in pubspec.yaml automatically.</li>
   </ul>
 
   <h2>Getting started</h2>
@@ -33,6 +39,25 @@
   ]]></description>
 
   <change-notes><![CDATA[
+    <b>1.1.0</b>
+
+    <ul>
+      <li>
+        When there's a asset reference in the code line, the editor will show a gutter icon. Clicking the gutter icon will open the asset file.
+      </li>
+      <li>
+        Support ctrl+click on asset reference to open the asset file in the editor.
+      </li>
+      <li>
+        Mouse hover on asset reference in the code line, the documentation window will show the asset image preview.
+      </li>
+      <li>
+        When rename a asset file, the related reference string will also be updated automatically.
+      </li>
+      <li>
+        Bug fix: the generated res.dart has syntax error when asset file name contains hyphen(#8). The solution is to replace hyphen with a underline.
+      </li>
+    </ul>
     <b>1.0.1</b>
     <ul>
       <li>
