@@ -1,8 +1,6 @@
 package com.shenyong.flutter.psi;
 
 import com.intellij.patterns.ElementPattern;
-import com.intellij.patterns.StandardPatterns;
-import com.intellij.patterns.StringPattern;
 import com.intellij.psi.*;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;

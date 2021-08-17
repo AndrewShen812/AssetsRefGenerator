@@ -10,7 +10,6 @@ public class FastImageInfo {
     public FastImageInfo(File file) throws IOException {
         try (FileInputStream is = new FileInputStream(file)) {
             processStream(is);
-            is.close();
         }
     }
 

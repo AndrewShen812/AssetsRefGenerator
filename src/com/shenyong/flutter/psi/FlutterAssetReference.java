@@ -8,8 +8,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.yaml.psi.impl.YAMLPlainTextImpl;
 
-import java.util.Locale;
-
 public class FlutterAssetReference extends PsiReferenceBase<PsiElement> implements PsiPolyVariantReference {
 
     // eg: doge.jpeg

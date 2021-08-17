@@ -1,6 +1,5 @@
 package com.shenyong.flutter.checker;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +18,6 @@ public interface ICheck {
 
     class CheckResult {
         public boolean isOk = false;
-        public List<String> missingFiles = new ArrayList<>();
+        public final List<String> missingFiles = new ArrayList<>();
     }
 }
