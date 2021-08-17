@@ -19,9 +19,16 @@ import org.jetbrains.yaml.psi.impl.YAMLPlainTextImpl;
 import java.util.Collection;
 
 public class AssetUtil {
-    public static VirtualFile getAssetVirtualFile(PsiElement psiElement) {
+    public static VirtualFile[] getAssetVirtualFile(PsiElement psiElement) {
         PsiFile[] psiFiles = getAssetPsiFiles(psiElement);
-        return psiFiles.length > 0 ? psiFiles[0].getVirtualFile() : null;
+        if (psiFiles.length == 0) {
+            return null;
+        }
+        VirtualFile[] virtualFiles = new VirtualFile[psiFiles.length];
+        for (int i = 0; i < psiFiles.length; i++) {
+            virtualFiles[i] = psiFiles[i].getVirtualFile();
+        }
+        return virtualFiles;
     }
 
     public static PsiFile[] getAssetPsiFiles(PsiElement psiElement) {

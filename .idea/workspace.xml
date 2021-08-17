@@ -4,23 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2127e0c-11a3-4508-8c91-5bc4762d2e95" name="Default Changelist" comment="feature: dart文件支持鼠标悬浮图片预览；在有图片引用的代码航增加编辑器gutter栏图标。">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/thumbnailator_0_4_14.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/thumbnailator-0.4.14.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetReference.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetLineMarkerProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetReference.java" afterDir="false" />
+    <list default="true" id="f2127e0c-11a3-4508-8c91-5bc4762d2e95" name="Default Changelist" comment="fix: 添加yaml和dart编译时依赖库。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssetsRefGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AssetsRefGenerator.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/icons/pluginIcon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/icons/sdk_12.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/AssetsRefGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/AssetsRefGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/Icons.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/checker/AssetsChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/checker/AssetsChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/AssetUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/AssetUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetDocumentationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetDocumentationProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetLineMarkerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetLineMarkerProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReference.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReferenceContributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReferenceContributor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetLineMarkerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetLineMarkerProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetReference.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetReferenceContributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/dart/DartAssetReferenceContributor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetLineMarkerProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetLineMarkerProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetReference.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetReferenceContributor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/yaml/YamlAssetReferenceContributor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,6 +56,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedIndex" value="5" />
+  </component>
   <component name="ProjectId" id="1bVxuLSGZ6wtqOleOUSxSrwLq7P" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -74,24 +78,25 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/icons" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="http.proxy" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/libs" />
       <recent name="$PROJECT_DIR$/resources/icons" />
+      <recent name="$PROJECT_DIR$/libs" />
       <recent name="D:\AssetsRefGenerator" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -227,11 +232,56 @@
       <option name="project" value="LOCAL" />
       <updated>1627870702654</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feature: 在pubspec.yaml中有对应资源声明的情况下，dart资源字符串支持鼠标悬停图片预览的迂回实现方案。">
+      <created>1627962435525</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1627962435525</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix: dart资源字符串鼠标悬停图片预览场景修复，eg：AssetImage(Constant.ASSETS_IMG + 'home.png')。">
+      <created>1627963539182</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1627963539182</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix: .9格式图片字符串支持。">
+      <created>1628815738255</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1628815738255</updated>
+    </task>
+    <task id="LOCAL-00010" summary="fix: 图片预览调试。">
+      <created>1628821101554</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1628821101554</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fix: 添加yaml和dart编译时依赖库。">
+      <created>1628827863765</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1628827863765</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -284,7 +334,12 @@
     <MESSAGE value="feature: 1、dart及yaml文件对应的声明支持ctrl+clickable；2、yaml 鼠标悬停弹窗显示图片预览。" />
     <MESSAGE value="feature: 增加不符合Flutter工程结构时缺失的文件列表提示。" />
     <MESSAGE value="feature: dart文件支持鼠标悬浮图片预览；在有图片引用的代码航增加编辑器gutter栏图标。" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature: dart文件支持鼠标悬浮图片预览；在有图片引用的代码航增加编辑器gutter栏图标。" />
+    <MESSAGE value="feature: 在pubspec.yaml中有对应资源声明的情况下，dart资源字符串支持鼠标悬停图片预览的迂回实现方案。" />
+    <MESSAGE value="fix: dart资源字符串鼠标悬停图片预览场景修复，eg：AssetImage(Constant.ASSETS_IMG + 'home.png')。" />
+    <MESSAGE value="fix: .9格式图片字符串支持。" />
+    <MESSAGE value="fix: 图片预览调试。" />
+    <MESSAGE value="fix: 添加yaml和dart编译时依赖库。" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 添加yaml和dart编译时依赖库。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

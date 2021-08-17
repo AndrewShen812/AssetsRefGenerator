@@ -40,6 +40,6 @@ public class DartAssetReferenceContributor extends FlutterAssetReferenceContribu
 
     @Override
     public FlutterAssetReference createAssetReference(PsiElement element) {
-        return new DartAssetReference(element);
+        return new FlutterAssetReference(element);
     }
 }

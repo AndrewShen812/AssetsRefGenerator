@@ -7,16 +7,14 @@ import com.intellij.icons.AllIcons;
 import com.intellij.openapi.project.Project;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
+import com.intellij.psi.impl.source.tree.LeafPsiElement;
 import com.intellij.psi.search.FilenameIndex;
 import com.intellij.psi.search.ProjectScope;
-import com.jetbrains.lang.dart.psi.impl.DartStringLiteralExpressionImpl;
+import com.jetbrains.lang.dart.DartTokenTypes;
 import com.shenyong.flutter.psi.AssetUtil;
 import org.jetbrains.annotations.NotNull;
 
-import java.io.File;
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class DartAssetLineMarkerProvider extends RelatedItemLineMarkerProvider {
     @Override
@@ -32,7 +30,6 @@ public class DartAssetLineMarkerProvider extends RelatedItemLineMarkerProvider {
         }
         boolean hasSuffix = fileName.lastIndexOf('.') != -1;
 
-        final List<PsiElement> properties = new ArrayList<>();
         Project project = element.getProject();
         PsiFile[] psiFiles;
         if (hasSuffix) {
@@ -44,20 +41,18 @@ public class DartAssetLineMarkerProvider extends RelatedItemLineMarkerProvider {
         if (psiFiles.length == 0) {
             return;
         }
-        properties.add(psiFiles[0]);
-        File imgFile = new File(psiFiles[0].getVirtualFile().getPath());
-        String uri = imgFile.toURI().toString();
-        NavigationGutterIconBuilder<PsiElement> builder =
-                // TODO: 2021/8/1  根据缩略图生成ICON
-                NavigationGutterIconBuilder.create(AllIcons.General.LayoutPreviewOnly)
-                        .setTargets(properties)
-                        .setTooltipText("Navigate to " + dartText);
+        // TODO: 2021/8/1  根据缩略图生成ICON
+        NavigationGutterIconBuilder<PsiElement> builder = NavigationGutterIconBuilder.create(AllIcons.General.LayoutPreviewOnly)
+                .setTargets(psiFiles)
+                .setTooltipText("Navigate to " + dartText);
         result.add(builder.createLineMarkerInfo(element));
     }
 
     private boolean isAssetElement(PsiElement element) {
         String text = element.getText();
-        return element instanceof DartStringLiteralExpressionImpl
+        // to fix runtime warning: Performance warning: LineMarker is supposed to be registered for leaf elements only
+        return element instanceof LeafPsiElement
+                && ((LeafPsiElement) element).getElementType() == DartTokenTypes.REGULAR_STRING_PART
                 && text.matches(DartAssetReferenceContributor.ASSET_PATTERN);
     }
 }

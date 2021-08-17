@@ -69,11 +69,11 @@
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
     <psi.referenceContributor language="Dart" implementation="com.shenyong.flutter.psi.dart.DartAssetReferenceContributor" />
-    <lang.documentationProvider language="Dart" implementationClass="com.shenyong.flutter.psi.FlutterAssetDocumentationProvider"/>
+    <lang.documentationProvider language="Dart" implementationClass="com.shenyong.flutter.psi.FlutterAssetDocumentationProvider" order="first"/>
     <codeInsight.lineMarkerProvider language="Dart" implementationClass="com.shenyong.flutter.psi.dart.DartAssetLineMarkerProvider"/>
 
     <psi.referenceContributor language="yaml" implementation="com.shenyong.flutter.psi.yaml.YamlAssetReferenceContributor" />
-    <lang.documentationProvider language="yaml" implementationClass="com.shenyong.flutter.psi.FlutterAssetDocumentationProvider"/>
+    <lang.documentationProvider language="yaml" implementationClass="com.shenyong.flutter.psi.FlutterAssetDocumentationProvider" order="first"/>
     <codeInsight.lineMarkerProvider language="yaml" implementationClass="com.shenyong.flutter.psi.yaml.YamlAssetLineMarkerProvider"/>
   </extensions>
 

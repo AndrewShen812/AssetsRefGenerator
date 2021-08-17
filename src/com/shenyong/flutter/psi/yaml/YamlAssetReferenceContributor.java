@@ -34,6 +34,6 @@ public class YamlAssetReferenceContributor extends FlutterAssetReferenceContribu
 
     @Override
     public FlutterAssetReference createAssetReference(PsiElement element) {
-        return new YamlAssetReference(element);
+        return new FlutterAssetReference(element);
     }
 }
