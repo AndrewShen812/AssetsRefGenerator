@@ -11,6 +11,7 @@ import com.intellij.psi.impl.source.tree.LeafPsiElement;
 import com.intellij.psi.search.FilenameIndex;
 import com.intellij.psi.search.ProjectScope;
 import com.jetbrains.lang.dart.DartTokenTypes;
+import com.jetbrains.lang.dart.psi.impl.DartReferenceExpressionImpl;
 import com.shenyong.flutter.psi.AssetUtil;
 import org.jetbrains.annotations.NotNull;
 
@@ -29,6 +30,11 @@ public class DartAssetLineMarkerProvider extends RelatedItemLineMarkerProvider {
             fileName = dartText.substring(index + 1);
         }
         boolean hasSuffix = fileName.lastIndexOf('.') != -1;
+
+        if (element instanceof DartReferenceExpressionImpl && dartText.matches("^Res\\.\\w+$")) {
+            fileName = dartText.replace("Res.", "");
+            hasSuffix = false;
+        }
 
         Project project = element.getProject();
         PsiFile[] psiFiles;
@@ -50,6 +56,11 @@ public class DartAssetLineMarkerProvider extends RelatedItemLineMarkerProvider {
 
     private boolean isAssetElement(PsiElement element) {
         String text = element.getText();
+        if (element instanceof DartReferenceExpressionImpl && text.matches("^Res\\.\\w+$")) {
+            // 支持 Res.xxx 显示 gutter icon
+            // NOTE 2021/8/17: 这个特性支持，违反了运行时警告：Performance warning: LineMarker is supposed to be registered for leaf elements only
+            return true;
+        }
         // to fix runtime warning: Performance warning: LineMarker is supposed to be registered for leaf elements only
         return element instanceof LeafPsiElement
                 && ((LeafPsiElement) element).getElementType() == DartTokenTypes.REGULAR_STRING_PART
