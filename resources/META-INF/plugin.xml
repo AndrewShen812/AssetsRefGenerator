@@ -1,26 +1,27 @@
 <idea-plugin>
   <id>com.shenyong.flutter.refgenerator</id>
   <name>Flutter Assets Ref Generator</name>
-  <version>1.0.1</version>
-  <vendor email="shenyong812@gmail.com" url="https://github.com/ChinaStyle812/AssetsRefGenerator">Andrew Shen</vendor>
+  <version>1.1.0</version>
+  <vendor email="shenyong812@gmail.com" url="https://github.com/AndrewShen812/AssetsRefGenerator">Andrew Shen</vendor>
 
   <description><![CDATA[
   <div>
-    Makes it easier to use assets in <a href="https://flutter.dev/">Flutter</a> project. Just like using R.drawable.xxx in Android!
+    Makes it easier to use and preview assets in <a href="https://flutter.dev/">Flutter</a> project. Just like using R.drawable.xxx in Android!
+    <a href="https://github.com/AndrewShen812/AssetsRefGenerator/blob/master/README.md">Usage demonstrate</a>.
   </div>
 
   <br/>
   <P>
     <b>
-      <a href="https://github.com/ChinaStyle812/AssetsRefGenerator">GitHub</a> |
-      <a href="https://github.com/ChinaStyle812/AssetsRefGenerator/blob/master/README_zh.md">中文文档</a>
+      <a href="https://github.com/AndrewShen812/AssetsRefGenerator">GitHub</a> |
+      <a href="https://github.com/AndrewShen812/AssetsRefGenerator/blob/master/README_zh.md">中文文档</a>
     </b>
   </P>
 
   <h2>Features</h2>
   <b>1.1.0</b>
   <ul>
-    <li>You can view the asset image by Click the gutter icon, or ctrl+click, or mouse hover, even you didn't generate the res.dart.</li>
+    <li>You can view the asset image by click the gutter icon, or ctrl + click, or mouse hover, even you didn't generate the res.dart.</li>
     <li>When rename a asset file, the related reference string will also be updated automatically.</li>
   </ul>
   <b>1.0.0</b>
@@ -33,7 +34,7 @@
   <ul>
     <li>Open your Flutter project.</li>
     <li>Create assets directory named asset,assets or images, and put your asset files in the directory.</li>
-    <li>Click the action button <img src="https://chinastyle812.github.io/AssetRefGenerator/genAssetRef.svg"> in the Toolbar.</li>
+    <li>Click the action button <img src="https://andrewshen812.github.io/AssetRefGenerator/genAssetRef.svg"> in the Toolbar.</li>
     <li>Now you'll see the pubspec.yaml file has been updated and a res.dart file also has been created under lib.</li>
   </ul>
   ]]></description>
@@ -46,10 +47,10 @@
         When there's a asset reference in the code line, the editor will show a gutter icon. Clicking the gutter icon will open the asset file.
       </li>
       <li>
-        Support ctrl+click on asset reference to open the asset file in the editor.
+        Support ctrl + click on asset reference to open the asset file in the editor.
       </li>
       <li>
-        Mouse hover on asset reference in the code line, the documentation window will show the asset image preview.
+        Mouse hover on a asset reference in the code line, the documentation window will show the asset image preview.
       </li>
       <li>
         When rename a asset file, the related reference string will also be updated automatically.
@@ -87,7 +88,6 @@
        on how to target different products -->
   <depends>com.intellij.modules.platform</depends>
   <depends>com.intellij.modules.lang</depends>
-  <depends>com.intellij.platform.images</depends>
   <depends>org.jetbrains.plugins.yaml</depends>
   <depends>Dart</depends>
 
