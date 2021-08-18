@@ -81,7 +81,7 @@ public class FlutterAssetDocumentationProvider extends AbstractDocumentationProv
             sb.append("</pre></div");
             sb.append("<div class='content' width=\"").append(size.width).append("px\" height=\"").append(size.height).append("\">");
             File tmpThumbnail;
-            if (Math.max(rawW, rawH) <= MAX_RAW_SIZE) {
+            if (Math.max(rawW, rawH) <= MAX_RAW_SIZE || Math.min(rawW, rawH) <= 0) { // 有可能读取尺寸异常
                 sb.append("  <img style=\"width: auto;height: auto;max-width: 100%;max-height: 100%;\" src=\"").append(uri).append("\">");
             } else {
                 try {
@@ -100,11 +100,13 @@ public class FlutterAssetDocumentationProvider extends AbstractDocumentationProv
             }
             sb.append("</div>");
             sb.append("<table class='sections'>");
-            if (rawW > size.width) {
-                addKeyValueSection("real size: ", rawW + "x" + rawH + " px", sb);
-                addKeyValueSection("preview size: ", size.width + "x" + size.height + " px", sb);
-            } else {
-                addKeyValueSection("size: ", rawW + "x" + rawH + " px", sb);
+            if (Math.min(rawW, rawH) > 0) {
+                if (rawW > size.width) {
+                    addKeyValueSection("real size: ", rawW + "x" + rawH + " px", sb);
+                    addKeyValueSection("preview size: ", size.width + "x" + size.height + " px", sb);
+                } else {
+                    addKeyValueSection("size: ", rawW + "x" + rawH + " px", sb);
+                }
             }
             sb.append("</table>");
         }

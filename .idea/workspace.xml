@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2127e0c-11a3-4508-8c91-5bc4762d2e95" name="Default Changelist" comment="feature: 支持 Res.xxx 引用显示 gutter icon。">
-      <change afterPath="$PROJECT_DIR$/.idea/META-INF/plugin.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f2127e0c-11a3-4508-8c91-5bc4762d2e95" name="Default Changelist" comment="fix: compatibility problem for IU-191.8026.42,IU-183.6156.11,IU-182.5262.2,IU-181.5684.4.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AssetsRefGenerator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/AssetsRefGenerator.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README_zh.md" beforeDir="false" afterPath="$PROJECT_DIR$/README_zh.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/META-INF/plugin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/META-INF/plugin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/image/FastImageInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/image/FastImageInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetDocumentationProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetDocumentationProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReference.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/shenyong/flutter/psi/FlutterAssetReference.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -350,7 +346,8 @@
     <MESSAGE value="feature: dart支持ctrl+click直接打开图片；重命名关联完善。" />
     <MESSAGE value="fix: static code inspect issues。" />
     <MESSAGE value="feature: 支持 Res.xxx 引用显示 gutter icon。" />
-    <option name="LAST_COMMIT_MESSAGE" value="feature: 支持 Res.xxx 引用显示 gutter icon。" />
+    <MESSAGE value="fix: compatibility problem for IU-191.8026.42,IU-183.6156.11,IU-182.5262.2,IU-181.5684.4." />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: compatibility problem for IU-191.8026.42,IU-183.6156.11,IU-182.5262.2,IU-181.5684.4." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

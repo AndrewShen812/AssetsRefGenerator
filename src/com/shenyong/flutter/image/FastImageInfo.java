@@ -63,7 +63,9 @@ public class FastImageInfo {
             height = readInt(is, 2, false);
             mimeType = "image/bmp";
         } else if (c1 == 'R' && c2 == 'I' && c3 == 'F') { // WEBP
-            byte[] bytes = is.readNBytes(27);
+            // byte[] bytes = is.readNBytes(27);
+            byte[] bytes = new byte[27];
+            is.read(bytes);
             width = ((int) bytes[24] & 0xff) << 8 | ((int) bytes[23] & 0xff);
             height = ((int) bytes[26] & 0xff) << 8 | ((int) bytes[25] & 0xff);
             mimeType = "image/webp";

@@ -2,6 +2,7 @@ package com.shenyong.flutter.psi;
 
 import com.intellij.openapi.util.TextRange;
 import com.intellij.psi.*;
+import com.intellij.util.ArrayUtilRt;
 import com.intellij.util.IncorrectOperationException;
 import com.jetbrains.lang.dart.psi.impl.DartStringLiteralExpressionImpl;
 import org.jetbrains.annotations.NotNull;
@@ -99,5 +100,10 @@ public class FlutterAssetReference extends PsiReferenceBase<PsiElement> implemen
         TextRange rangeInElement = new TextRange(startIndex, endIndex);
         fileName = newContent;
         return ElementManipulators.getManipulator(myElement).handleContentChange(myElement, rangeInElement, newContent);
+    }
+
+    @Override
+    public @NotNull Object[] getVariants() {
+        return ArrayUtilRt.EMPTY_OBJECT_ARRAY;
     }
 }
