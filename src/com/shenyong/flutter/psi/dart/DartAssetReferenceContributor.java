@@ -23,7 +23,7 @@ public class DartAssetReferenceContributor extends FlutterAssetReferenceContribu
     // Image.asset('assets/images/food01.jpeg'）
     // Utils.getImgPath('ic_launcher_news.png')
     // Utils.getImgPath('ic_launcher_news')
-    public static final String ASSET_PATTERN = "^[\"']?(asset(s)?(/([-\\w]+|[1-9]\\.\\dx))*/)?[-\\w]+(.(jp(e)?g|(9.)?png|webp|bmp))?[\"']?$";
+    public static final String ASSET_PATTERN = "^[\"']?(asset(s)?(/([-\\w\\u00C0-\\u017F]+|[1-9]\\.\\dx))*/)?[-\\w\\u00C0-\\u017F]+(.(jp(e)?g|(9.)?png|webp|bmp))?[\"']?$";
     private static final StringPattern DART_ASSET_STRING = StandardPatterns.string().matches(ASSET_PATTERN);
 
 

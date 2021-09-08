@@ -34,6 +34,7 @@ import com.shenyong.flutter.checker.ICheck;
 import com.shenyong.flutter.checker.ProjChecker;
 
 import java.io.*;
+import java.text.Normalizer;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -337,6 +338,10 @@ public class AssetsRefGenerator extends AnAction {
                 }
                 // 替换连字符'-'为下划线'_'
                 name = name.replace('-', '_');
+                // 变音符处理，如：âĉéè.png
+                if (name.matches("^.*[\\u00C0-\\u017F]+.*$")) {
+                    name = Normalizer.normalize(name, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+                }
                 assetDefines.add("  static const String " + name + " = \"" + assetPath + "\";");
             }
 

@@ -18,7 +18,7 @@ public class YamlAssetReferenceContributor extends FlutterAssetReferenceContribu
     // 在pubspec.yaml中，资源声明可能存在精确到文件或只到目录的方式：
     // assets/images/doge.jpeg
     // assets/images/
-    public static final String ASSET_PATTERN = "^asset(s)?(/([-\\w]+|[1-9]\\.\\dx))*/([-\\w]+\\.(jp(e)?g|(9.)?png|webp|bmp)?)?$";
+    public static final String ASSET_PATTERN = "^asset(s)?(/([-\\w\\u00C0-\\u017F]+|[1-9]\\.\\dx))*/([-\\w\\u00C0-\\u017F]+\\.(jp(e)?g|(9.)?png|webp|bmp)?)?$";
     private static final StringPattern YAML_ASSET_STRING = StandardPatterns.string().matches(ASSET_PATTERN);
 
     @Override
