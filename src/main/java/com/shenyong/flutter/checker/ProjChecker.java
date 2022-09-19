@@ -17,7 +17,6 @@ public class ProjChecker implements ICheck {
         checkFiles = new ArrayList<>();
         checkFiles.add("lib");
         checkFiles.add(".metadata");
-        checkFiles.add(".packages");
         checkFiles.add("pubspec.lock");
         checkFiles.add("pubspec.yaml");
     }
