@@ -1,0 +1,113 @@
+<idea-plugin>
+  <id>com.shenyong.flutter.refgenerator</id>
+  <name>Flutter Assets Ref Generator</name>
+  <vendor email="shenyong812@gmail.com" url="https://github.com/AndrewShen812/AssetsRefGenerator">Andrew Shen</vendor>
+
+  <description><![CDATA[
+  <div>
+    Makes it easier to use and preview assets in <a href="https://flutter.dev/">Flutter</a> project. Just like using R.drawable.xxx in Android!
+    <a href="https://github.com/AndrewShen812/AssetsRefGenerator/blob/master/README.md">Usage demonstrate</a>.
+  </div>
+
+  <br/>
+  <P>
+    <b>
+      <a href="https://github.com/AndrewShen812/AssetsRefGenerator">GitHub</a> |
+      <a href="https://github.com/AndrewShen812/AssetsRefGenerator/blob/master/README_zh.md">中文文档</a>
+    </b>
+  </P>
+
+  <h2>Features</h2>
+  <b>1.1.0</b>
+  <ul>
+    <li>You can view the asset image by click the gutter icon, or ctrl + click, or mouse hover, even you didn't generate the res.dart.</li>
+    <li>When rename a asset file, the related reference string will also be updated automatically.</li>
+  </ul>
+  <b>1.0.0</b>
+  <ul>
+    <li>generate a <b>res.dart</b> file contained assets definition.</li>
+    <li>Update assets declaration in pubspec.yaml automatically.</li>
+  </ul>
+
+  <h2>Getting started</h2>
+  <ul>
+    <li>Open your Flutter project.</li>
+    <li>Create assets directory named asset,assets or images, and put your asset files in the directory.</li>
+    <li>Click the action button <img src="https://andrewshen812.github.io/AssetRefGenerator/genAssetRef.svg"> in the Toolbar.</li>
+    <li>Now you'll see the pubspec.yaml file has been updated and a res.dart file also has been created under lib.</li>
+  </ul>
+  ]]></description>
+
+  <change-notes><![CDATA[
+    <b>1.1.0</b>
+
+    <ul>
+      <li>
+        When there's a asset reference in the code line, the editor will show a gutter icon. Clicking the gutter icon will open the asset file.
+      </li>
+      <li>
+        Support ctrl + click on asset reference to open the asset file in the editor.
+      </li>
+      <li>
+        Mouse hover on a asset reference in the code line, the documentation window will show the asset image preview.
+      </li>
+      <li>
+        When rename a asset file, the related reference string will also be updated automatically.
+      </li>
+      <li>
+        Bug fix: the generated res.dart has syntax error when asset file name contains hyphen(#8). The solution is to replace hyphen with a underline.
+      </li>
+    </ul>
+    <b>1.0.1</b>
+    <ul>
+      <li>
+        Support Flutter Module, Package and Plugin project.
+      </li>
+      <li>
+        Ignore .DS_Store file on Mac OS X.
+      </li>
+    </ul>
+    <b>1.0.0</b>
+    <br/>
+    Implement basic functions.
+    <ul>
+      <li>
+        Scan asset files under directory named asset, or assets or images, add asset declaration in pubspec.yaml.
+      </li>
+      <li>
+        Generate a res.dart file under lib, which contains string-type asset definition.
+      </li>
+    </ul>
+  ]]></change-notes>
+
+
+  <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+       on how to target different products -->
+  <depends>com.intellij.modules.platform</depends>
+  <depends>com.intellij.modules.lang</depends>
+  <depends>org.jetbrains.plugins.yaml</depends>
+  <depends>Dart</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <psi.referenceContributor language="Dart" implementation="com.shenyong.flutter.psi.dart.DartAssetReferenceContributor" />
+    <lang.documentationProvider language="Dart" implementationClass="com.shenyong.flutter.psi.FlutterAssetDocumentationProvider" order="first"/>
+    <codeInsight.lineMarkerProvider language="Dart" implementationClass="com.shenyong.flutter.psi.dart.DartAssetLineMarkerProvider"/>
+
+    <psi.referenceContributor language="yaml" implementation="com.shenyong.flutter.psi.yaml.YamlAssetReferenceContributor" />
+    <lang.documentationProvider language="yaml" implementationClass="com.shenyong.flutter.psi.FlutterAssetDocumentationProvider" order="first"/>
+    <codeInsight.lineMarkerProvider language="yaml" implementationClass="com.shenyong.flutter.psi.yaml.YamlAssetLineMarkerProvider"/>
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+    <action id="FlutterAssetsRefGenerator"
+            class="com.shenyong.flutter.AssetsRefGenerator"
+            text="Generate Flutter Assets Reference"
+            description="Flutter assets ref generator"
+            icon="/icons/genAssetRef.svg">
+      <add-to-group group-id="ToolbarRunGroup" anchor="last"/>
+    </action>
+  </actions>
+
+</idea-plugin>
