@@ -35,7 +35,6 @@ import com.shenyong.flutter.checker.ProjChecker;
 
 import java.io.*;
 import java.text.Normalizer;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -213,6 +212,20 @@ public class AssetsRefGenerator extends AnAction {
         boolean assetStart = false;
         BufferedReader reader = null;
         BufferedWriter writer = null;
+        // 显式的具体资源声明，如：- assets/images/home.png
+        boolean hasExplicitDeclaration = false;
+        // 只有目录级别的声明，如：- assets/images/
+        boolean hasDirDeclaration = false;
+        Set<String> assetsDirs = new HashSet<>();
+        for (String asset : assets) {
+            if (asset.contains("/") && !asset.endsWith("/")) {
+                String dir = asset.substring(0, asset.lastIndexOf("/") + 1);
+                if (!assetsDirs.contains(dir)) {
+                    System.out.println("assetsDir: " + dir);
+                }
+                assetsDirs.add(dir);
+            }
+        }
         try {
             reader = new BufferedReader(new FileReader(pubspec));
             String line = reader.readLine();
@@ -227,17 +240,68 @@ public class AssetsRefGenerator extends AnAction {
                 if (assetStart) {
                     // 原pubspec.yaml文件中就有的资源声明，或资源声明之间的空行
                     if (line.matches("^ {2,}- .*") || line.matches("^\\S*$")) {
-                        // 原有的其他声明，可能是已删除的，或引入的其他package的资源
-                        if (line.matches("^ {2,}- .*") && !assets.contains(line)) {
+                        System.out.println("matched line after assetStart: " + line);
+                        // 原有的其他声明，可能是已删除的，或引入的其他package的资源等
+                        boolean isAsset = false;
+                        for (String asset : assets) {
+                           if (line.trim().equals(asset.trim())) {
+                               isAsset = true;
+                               break;
+                           }
+                        }
+                        if (line.matches("^ {2,}- .*") && (!isAsset || line.endsWith("/"))) {
                             oldRemained.add(line);
+                        }
+                        if (!hasExplicitDeclaration && assets.contains(line)) {
+                            hasExplicitDeclaration = true;
+                        }
+                        boolean isAssetDir = false;
+                        for (String dir : assetsDirs) {
+                            if (dir.trim().equals(line.trim())) {
+                                isAssetDir = true;
+                                break;
+                            }
+                        }
+                        // 可能有其他非图片类型的资源路径声明以/结尾
+                        if (!hasDirDeclaration && (isAssetDir || line.matches("^ {2,}- .*/$"))) {
+                            if (!isAssetDir) {
+                                assetsDirs.add(line);
+                            }
+                            hasDirDeclaration = true;
                         }
                     } else {
                         // 资源声明结束
                         assetStart = false;
-                        removeDeleted(assets, oldRemained);
-                        // 默认按字母顺序排序
-                        assets.sort(String::compareToIgnoreCase);
-                        outLines.addAll(assets);
+                        if (hasDirDeclaration
+                            // 没有任何资源声明，但是扫描到了图片资源，以目录方式添加资源声明
+                            || !hasExplicitDeclaration) {
+                            // merge old remained
+                            Set<String> dirsToAdd = new HashSet<>(assetsDirs);
+                            if (oldRemained.size() >= assetsDirs.size()) {
+                                for (String old : oldRemained) {
+                                    boolean isAdded = false;
+                                    for (String dir : assetsDirs) {
+                                        if (dir.trim().equals(old.trim())) {
+                                            isAdded = true;
+                                            break;
+                                        }
+                                    }
+                                    if (!isAdded) {
+                                        dirsToAdd.add(old);
+                                    }
+                                }
+                            }
+
+                            List<String> dirList = new ArrayList<>(dirsToAdd);
+                            dirList.sort((o1, o2) -> String.CASE_INSENSITIVE_ORDER.compare(o1.trim(), o2.trim()));
+                            outLines.addAll(dirList);
+                        } else {
+                            mergeRemained(assets, oldRemained);
+                            // 默认按字母顺序排序
+                            assets.sort(String::compareToIgnoreCase);
+                            outLines.addAll(assets);
+                        }
+
                         outLines.add(line);
                     }
                 } else {
@@ -247,19 +311,30 @@ public class AssetsRefGenerator extends AnAction {
                 if (line == null && assetStart) {
                     // 资源声明在yaml文件末尾的情况。判断asset声明未结束，但已读取到文件末尾了
                     assetStart = false;
-                    removeDeleted(assets, oldRemained);
+                    mergeRemained(assets, oldRemained);
                     // 默认按字母顺序排序
                     assets.sort(String::compareToIgnoreCase);
                     outLines.addAll(assets);
                 }
             }
-            // 将更新了资源声明的内容写回到pubspec.yaml文件
-            writer = new BufferedWriter(new FileWriter(pubspec));
-            for (String out : outLines) {
-                writer.write(out);
-                writer.newLine();
+            if (hasExplicitDeclaration || hasDirDeclaration
+                // 没有任何资源声明，但是扫描到了图片资源，以目录方式添加资源声明
+                || !assetsDirs.isEmpty()) {
+                if (isAllInRemained(assetsDirs, oldRemained)) {
+                    // 无需更新pubspec.yaml
+                    System.out.println("pubspec.yaml already contains all assetsDirs, not updated.");
+                } else {
+                    // 将更新了资源声明的内容写回到pubspec.yaml文件
+                    writer = new BufferedWriter(new FileWriter(pubspec));
+                    for (String out : outLines) {
+                        writer.write(out);
+                        writer.newLine();
+                    }
+                    writer.flush();
+                }
+            } else {
+                System.out.println("pubspec.yaml has no explicit asset declaration, not updated.");
             }
-            writer.flush();
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -280,15 +355,28 @@ public class AssetsRefGenerator extends AnAction {
         }
     }
 
+    private boolean isAllInRemained(Set<String> assetsDirs, List<String> remained) {
+        int inRemainedCnt = 0;
+        for (String dir : assetsDirs) {
+            for (String oldLine : remained) {
+                if (dir.trim().equals(oldLine.trim())) {
+                    inRemainedCnt++;
+                }
+            }
+        }
+
+        return inRemainedCnt > 0 && inRemainedCnt == assetsDirs.size();
+    }
+
     /**
      * 去掉已删除资源的旧声明，但保留引入的其他package的资源（以”  - packages/*"形式声明的）
      *
      * @param newAssets   扫描生成的资源声明
      * @param oldRemained 遗留的其他声明
      */
-    private void removeDeleted(List<String> newAssets, List<String> oldRemained) {
+    private void mergeRemained(List<String> newAssets, List<String> oldRemained) {
         for (String line : oldRemained) {
-            if (line.matches("^ {2,}- packages/.*")) {
+            if (line.matches("^ {2,}- packages/.*") || line.matches("^ {2,}- .*/$")) {
                 newAssets.add(line);
             }
         }
@@ -309,9 +397,6 @@ public class AssetsRefGenerator extends AnAction {
         BufferedWriter writer = null;
         try {
             writer = new BufferedWriter(new FileWriter(resFile));
-            writer.write("// ignore_for_file: camel_case_types, constant_identifier_names, non_constant_identifier_names");
-            writer.newLine();
-            writer.newLine();
             writer.write("/// Generated by AssetsRefGenerator - DO NOT MODIFY BY HAND");
             writer.newLine();
             writer.write("class Res {");
