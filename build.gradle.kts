@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.intellij") version "1.6.0"
 }
 
-version = "1.1.0"
+version = "1.2.0"
 
 repositories {
     mavenCentral()
@@ -40,7 +40,7 @@ tasks {
     }
 
     patchPluginXml {
-        sinceBuild.set("212")
+        sinceBuild.set("173.2099.1")
         untilBuild.set("223.*")
     }
 

@@ -10,9 +10,15 @@
 支持多种引用资源图片的 dart 代码写法：
 ![dart usage](https://andrewshen812.github.io/AssetRefGenerator/usage_dev.gif)
 
+支持自定义生成文件的路径、生成类的名称和类字段的命名风格：
+![settings_usage](https://andrewshen812.github.io/AssetRefGenerator/usage_settings.gif)
+
 [English Doc][2]
 
 ## 功能
+### 1.2.0
+- 插件支持自定义设置了！你可以配置生成文件的路径、生成类的名称和类字段的命名风格。
+- 设置入口：Preferences/Settings > Tools > Flutter Assets Ref Generator
 ### 1.1.0
  - 可以通过：点击编辑器左侧图标、或 ctrl + click、或鼠标悬停，3种方式快速查看资源图片，即使在这之前没有生成 res.dart。
  - 重命名资源文件时，dart 和 yaml 中相关联的资源引用字符串也会自动更新。
@@ -27,6 +33,10 @@
  - 打开 pubspec.yaml 看一下，你将看到文件中已经自动添加了资源文件的声明。并且在lib目录下生成了一个res.dart文件，其中包含资源文件的 String 类型使用定义。
 
 ## 更新日志
+1.2.0
+ - 插件支持自定义设置([#14][5])，可以配置生成文件的路径、生成类的名称和类字段的命名风格。
+ - Bug fix([#17][5]): 不再检查.packages文件是否存在。
+
 1.1.0
  - 当 dart 或 pubspec.yaml 代码行中包含一个资源引用字符串时，编辑器左侧会显示一个图标。点击图标可以打开图片文件。
  - 支持在资源引用字符串上 ctrl + click 打开图片文件。
@@ -48,3 +58,5 @@
 [2]:https://github.com/AndrewShen812/AssetsRefGenerator
 [3]:https://www.iconfont.cn/search/index?q=flutter
 [4]:https://github.com/AndrewShen812/AssetsRefGenerator/issues/8
+[5]:https://github.com/AndrewShen812/AssetsRefGenerator/issues/14
+[6]:https://github.com/AndrewShen812/AssetsRefGenerator/issues/17

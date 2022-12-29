@@ -18,6 +18,12 @@
   </P>
 
   <h2>Features</h2>
+  <b>1.2.0</b>
+  <ul>
+    <li>Plugin support custom settings now! You can configure the generated file's path, the generated class' name and the naming conventions of class field.</li>
+    <img src="https://andrewshen812.github.io/AssetRefGenerator/settings_small.png">
+  </ul>
+
   <b>1.1.0</b>
   <ul>
     <li>You can view the asset image by click the gutter icon, or ctrl + click, or mouse hover, even you didn't generate the res.dart.</li>
@@ -39,8 +45,13 @@
   ]]></description>
 
   <change-notes><![CDATA[
-    <b>1.1.0</b>
+    <b>1.2.0</b>
+    <ul>
+      <li>Support custom settings. Users can configure the generated file's path, generated class' name and the naming conventions of class field.</li>
+      <li>Bug fix: no more checks for the existence of .packages file.</li>
+    </ul>
 
+    <b>1.1.0</b>
     <ul>
       <li>
         When there's a asset reference in the code line, the editor will show a gutter icon. Clicking the gutter icon will open the asset file.

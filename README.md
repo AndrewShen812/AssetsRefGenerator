@@ -10,9 +10,16 @@ Support asset image preview in a variety of dart code writing styles.
 
 ![dart usage](https://andrewshen812.github.io/AssetRefGenerator/usage_dev.gif)
 
+Support custom settings for the generated file's path, the generated class' name and the naming conventions of class field.
+
+![settings_usage](https://andrewshen812.github.io/AssetRefGenerator/usage_settings.gif)
+
 [中文文档][2]
 
 ## Features
+### 1.2.0
+ - Plugin support custom settings now! You can configure the generated file's path, the generated class' name and the naming conventions of class field.
+ - Settings entry: Preferences/Settings > Tools > Flutter Assets Ref Generator.
 ### 1.1.0
  - You can view the asset image by click the gutter icon, or ctrl+click, or mouse hover, even you didn't generate the res.dart.
  - When rename a asset file, the related reference string will also be updated automatically.
@@ -27,12 +34,17 @@ Support asset image preview in a variety of dart code writing styles.
  - Now you'll see the pubspec.yaml file has been updated, and a res.dart file also has been created under lib.
 
 ## Change-notes
+
+1.2.0
+ - Support custom settings([#14][5]). Users can configure the generated file's path, generated class' name and the naming conventions of class field.
+ - Bug fix([#17][6]): no more checks for the existence of .packages file.
+
 1.1.0
  - When there's a asset reference in the code line, the editor will show a gutter icon. Clicking the gutter icon will open the asset file.
  - Support ctrl+click on asset reference to open the asset file in the editor.
  - Mouse hover on a asset reference in the code line, the documentation window will show the asset image preview.
  - When rename a asset file, the related reference string will also be updated automatically.
- - Bug fix: the generated res.dart has syntax error when asset file name contains hyphen([#8][4]). The solution is to replace hyphen with a underline.
+ - Bug fix([#8][4]): the generated res.dart has syntax error when asset file name contains hyphen. The solution is to replace hyphen with a underline.
 
 1.0.1
  - Support Flutter Module, Package and Plugin project.
@@ -48,3 +60,5 @@ Support asset image preview in a variety of dart code writing styles.
 [2]:https://github.com/AndrewShen812/AssetsRefGenerator/blob/master/README_zh.md
 [3]:https://www.iconfont.cn/search/index?q=flutter
 [4]:https://github.com/AndrewShen812/AssetsRefGenerator/issues/8
+[5]:https://github.com/AndrewShen812/AssetsRefGenerator/issues/14
+[6]:https://github.com/AndrewShen812/AssetsRefGenerator/issues/17
