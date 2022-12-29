@@ -24,6 +24,7 @@
 
 package com.shenyong.flutter;
 
+import com.google.common.base.CaseFormat;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
@@ -32,6 +33,7 @@ import com.intellij.openapi.ui.Messages;
 import com.shenyong.flutter.checker.AssetsChecker;
 import com.shenyong.flutter.checker.ICheck;
 import com.shenyong.flutter.checker.ProjChecker;
+import com.shenyong.flutter.settings.PluginSettingsState;
 
 import java.io.*;
 import java.text.Normalizer;
@@ -55,7 +57,6 @@ import java.util.regex.Pattern;
 public class AssetsRefGenerator extends AnAction {
 
     private static final String PUBSPEC = "pubspec.yaml";
-    public static final String RES_FILE = "res.dart";
     private static final String MAC_OS_DS_STORE = ".DS_Store";
 
     private final ProjChecker projChecker = new ProjChecker();
@@ -385,8 +386,13 @@ public class AssetsRefGenerator extends AnAction {
     private static final Pattern PATTERN = Pattern.compile("packages/(?<pkgName>[a-z_]+)/.*");
 
     private void genResDart(String path, List<String> assets) {
-        System.out.println("Updating res.dart...");
-        File resFile = new File(path + "/" + "lib", RES_FILE);
+        PluginSettingsState settings = PluginSettingsState.getInstance();
+        System.out.println("Updating " + settings.resFilePath + "...");
+        File resFile = new File(path + "/" + settings.resFilePath);
+        File parent = resFile.getParentFile();
+        if (!parent.exists()) {
+            parent.mkdirs();
+        }
         if (!resFile.exists()) {
             try {
                 resFile.createNewFile();
@@ -428,6 +434,10 @@ public class AssetsRefGenerator extends AnAction {
                 if (name.matches("^.*[\\u00C0-\\u017F]+.*$")) {
                     name = Normalizer.normalize(name, Normalizer.Form.NFD).replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
                 }
+                if (!settings.isSnakeCase) {
+                    // 字段名称改为驼峰式
+                    name = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, name);
+                }
                 assetDefines.add("  static const String " + name + " = \"" + assetPath + "\";");
             }
 
@@ -443,7 +453,12 @@ public class AssetsRefGenerator extends AnAction {
                 writer.write("class Packages {");
                 writer.newLine();
                 for (String pkg : packages) {
-                    writer.write("  static const String " + pkg + " = \"" + pkg + "\";");
+                    String name = pkg;
+                    if (!settings.isSnakeCase) {
+                        // 字段名称改为驼峰式
+                        name = CaseFormat.LOWER_UNDERSCORE.to(CaseFormat.LOWER_CAMEL, name);
+                    }
+                    writer.write("  static const String " + name + " = \"" + pkg + "\";");
                     writer.newLine();
                 }
                 writer.write("}");

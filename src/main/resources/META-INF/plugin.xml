@@ -97,6 +97,11 @@
     <psi.referenceContributor language="yaml" implementation="com.shenyong.flutter.psi.yaml.YamlAssetReferenceContributor" />
     <lang.documentationProvider language="yaml" implementationClass="com.shenyong.flutter.psi.FlutterAssetDocumentationProvider" order="first"/>
     <codeInsight.lineMarkerProvider language="yaml" implementationClass="com.shenyong.flutter.psi.yaml.YamlAssetLineMarkerProvider"/>
+    <!-- plugin settings -->
+    <applicationConfigurable parentId="tools" instance="com.shenyong.flutter.settings.PluginSettingsConfigurable"
+                             id="com.shenyong.flutter.settings.PluginSettingsConfigurable"
+                             displayName="Flutter Assets Ref Generator"/>
+    <applicationService serviceImplementation="com.shenyong.flutter.settings.PluginSettingsState" />
   </extensions>
 
   <actions>
