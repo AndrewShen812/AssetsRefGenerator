@@ -59,7 +59,7 @@ public class PluginSettingsConfigurable implements Configurable {
          * Dart 类名检查
          * 参考: https://dart.dev/guides/language/effective-dart/style#do-name-types-using-uppercamelcase
          */
-        if (!inputClsName.matches("^[A-Z]\\w+$")) {
+        if (!inputClsName.matches("^[A-Z]\\w*$")) {
             throw new ConfigurationException("Class name MUST be a correct Dart class name(UpperCamelCase).",
                     "Flutter Assets Ref Generator Settings Error");
         }

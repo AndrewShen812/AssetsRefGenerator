@@ -30,6 +30,8 @@ import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
+import com.intellij.openapi.vfs.LocalFileSystem;
+import com.intellij.openapi.vfs.VirtualFile;
 import com.shenyong.flutter.checker.AssetsChecker;
 import com.shenyong.flutter.checker.ICheck;
 import com.shenyong.flutter.checker.ProjChecker;
@@ -352,6 +354,10 @@ public class AssetsRefGenerator extends AnAction {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                VirtualFile vFile = LocalFileSystem.getInstance().findFileByIoFile(pubspec);
+                if (vFile != null) {
+                    vFile.refresh(true, false);
+                }
             }
         }
     }
@@ -476,6 +482,10 @@ public class AssetsRefGenerator extends AnAction {
                     e.printStackTrace();
                 }
             }
+        }
+        VirtualFile vFile = LocalFileSystem.getInstance().refreshAndFindFileByIoFile(resFile);
+        if (vFile != null) {
+            vFile.refresh(true, false);
         }
         System.out.println("Flutter assets reference has been updated.");
         showSuccessInfo();
