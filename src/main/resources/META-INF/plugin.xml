@@ -48,6 +48,7 @@
     <b>1.2.0</b>
     <ul>
       <li>Support custom settings. Users can configure the generated file's path, generated class' name and the naming conventions of class field.</li>
+      <li>Prefer specifying assets in pubspec.yaml by specifying a directory, such as: `- assets/images/`. If specifying file style has already been used, like `- assets/images/home.png`, then keep this style.</li>
       <li>Bug fix: no more checks for the existence of .packages file.</li>
     </ul>
 

@@ -19,7 +19,9 @@ Support custom settings for the generated file's path, the generated class' name
 ## Features
 ### 1.2.0
  - Plugin support custom settings now! You can configure the generated file's path, the generated class' name and the naming conventions of class field.
- - Settings entry: Preferences/Settings > Tools > Flutter Assets Ref Generator.
+ Entry: Preferences/Settings > Tools > Flutter Assets Ref Generator.
+ - Prefer specifying assets in pubspec.yaml by specifying a directory, such as: `- assets/images/`. If specifying file 
+   style has already been used, like `- assets/images/home.png`, then keep this style.  
 ### 1.1.0
  - You can view the asset image by click the gutter icon, or ctrl+click, or mouse hover, even you didn't generate the res.dart.
  - When rename a asset file, the related reference string will also be updated automatically.
@@ -37,6 +39,8 @@ Support custom settings for the generated file's path, the generated class' name
 
 1.2.0
  - Support custom settings([#14][5]). Users can configure the generated file's path, generated class' name and the naming conventions of class field.
+ - Prefer specifying assets in pubspec.yaml by specifying a directory, such as: `- assets/images/`. If specifying file
+      style has already been used, like `- assets/images/home.png`, then keep this style.
  - Bug fix([#17][6]): no more checks for the existence of .packages file.
 
 1.1.0

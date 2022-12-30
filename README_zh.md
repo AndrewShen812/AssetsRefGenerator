@@ -17,8 +17,10 @@
 
 ## 功能
 ### 1.2.0
-- 插件支持自定义设置了！你可以配置生成文件的路径、生成类的名称和类字段的命名风格。
-- 设置入口：Preferences/Settings > Tools > Flutter Assets Ref Generator
+ - 插件支持自定义设置了！你可以配置生成文件的路径、生成类的名称和类字段的命名风格。
+  设置入口：Preferences/Settings > Tools > Flutter Assets Ref Generator
+ - 优先使用指定目录的方式在 pubspec.yaml 中指定资源，如：`- assets/images/`。如果已存在类似`- assets/images/home.png`的具体文件指定方式，
+则继续沿用。
 ### 1.1.0
  - 可以通过：点击编辑器左侧图标、或 ctrl + click、或鼠标悬停，3种方式快速查看资源图片，即使在这之前没有生成 res.dart。
  - 重命名资源文件时，dart 和 yaml 中相关联的资源引用字符串也会自动更新。
@@ -35,6 +37,8 @@
 ## 更新日志
 1.2.0
  - 插件支持自定义设置([#14][5])，可以配置生成文件的路径、生成类的名称和类字段的命名风格。
+ - 优先使用指定目录的方式在 pubspec.yaml 中指定资源，如：`- assets/images/`。如果已存在类似`- assets/images/home.png`的具体文件指定方式，
+   则继续沿用。
  - Bug fix([#17][5]): 不再检查.packages文件是否存在。
 
 1.1.0
