@@ -20,13 +20,15 @@
   <h2>Features</h2>
   <b>1.2.0</b>
   <ul>
-    <li>Plugin support custom settings now! You can configure the generated file's path, the generated class' name and the naming conventions of class field.</li>
-    <img src="https://andrewshen812.github.io/AssetRefGenerator/settings_small.png">
+    <li>Plugin support configure the generated file's path, the generated class' name and the naming conventions of class field.
+    Entry: Preferences/Settings > Tools > Flutter Assets Ref Generator.
+    </li>
+    <li>Prefer specifying assets in pubspec.yaml by specifying a directory, such as: `- assets/images/`. If specifying file style has already been used, like `- assets/images/home.png`, then keep this style.</li>
   </ul>
 
   <b>1.1.0</b>
   <ul>
-    <li>You can view the asset image by click the gutter icon, or ctrl + click, or mouse hover, even you didn't generate the res.dart.</li>
+    <li>Support view the asset image by click the gutter icon, or ctrl + click, or mouse hover, even the res.dart not generated.</li>
     <li>When rename a asset file, the related reference string will also be updated automatically.</li>
   </ul>
   <b>1.0.0</b>
@@ -37,10 +39,10 @@
 
   <h2>Getting started</h2>
   <ul>
-    <li>Open your Flutter project.</li>
-    <li>Create assets directory named asset,assets or images, and put your asset files in the directory.</li>
+    <li>Open Flutter project.</li>
+    <li>Create assets directory named asset,assets or images, and put asset files into the directory.</li>
     <li>Click the action button <img src="https://andrewshen812.github.io/AssetRefGenerator/genAssetRef.svg"> in the Toolbar.</li>
-    <li>Now you'll see the pubspec.yaml file has been updated and a res.dart file also has been created under lib.</li>
+    <li>Now the pubspec.yaml file has been updated and a res.dart file also has been created under lib.</li>
   </ul>
   ]]></description>
 
