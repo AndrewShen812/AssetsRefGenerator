@@ -48,8 +48,8 @@ public class PluginSettingsComponent {
                     rbGroup.add(rbCamelCase);
 
                     HyperlinkLabel linkLabel = new HyperlinkLabel();
-                    linkLabel.setHyperlinkText("According to the ", "Dart language guide",
-                            ", we should PREFER using lowerCamelCase for constant ");
+                    linkLabel.setHtmlText("According to the <a href=\"DartLanguageGuide\">Dart language guide</a>, " +
+                            "we should PREFER using lowerCamelCase for constant ");
                     linkLabel.setHyperlinkTarget("https://dart.dev/guides/language/effective-dart/style#prefer-using-lowercamelcase-for-constant-names");
                     JPanel panel = FormBuilder.createFormBuilder()
                             .addComponent(linkLabel, 1)
