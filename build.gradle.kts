@@ -3,7 +3,7 @@ plugins {
     id("org.jetbrains.intellij") version "1.6.0"
 }
 
-version = "1.2.0"
+version = "1.2.221"
 
 repositories {
     mavenCentral()
@@ -14,15 +14,20 @@ dependencies {
 }
 // Configure Gradle IntelliJ Plugin - read more: https://github.com/JetBrains/gradle-intellij-plugin
 intellij {
-    version.set("2021.3")
     type.set("IC") // Target IDE Platform
+    version.set("2022.1.4")
 
     plugins.set(
         listOf(
             //因为要生成 dart 文件，需要使用到 dart 插件中的类，所以这里要引入 dart 插件
-            "Dart:213.5744.122", //https://plugins.jetbrains.com/plugin/6351-dart/versions
-            "io.flutter:63.2.4",
-            "org.jetbrains.plugins.yaml:213.5744.121", //https://plugins.jetbrains.com/plugin/13126-yaml/versions
+//            "Dart:213.5744.122", //https://plugins.jetbrains.com/plugin/6351-dart/versions
+//            "io.flutter:63.2.4",
+//            "org.jetbrains.plugins.yaml:213.5744.121", //https://plugins.jetbrains.com/plugin/13126-yaml/versions
+
+            // 兼容 IDEA 2022.1.4(Build 221.6008.13)/Android Studio Electric Eel | 2022.1.1
+            "Dart:221.6008.13", //https://plugins.jetbrains.com/plugin/6351-dart/versions
+            "io.flutter:71.1.4",
+            "org.jetbrains.plugins.yaml:221.5591.46", //https://plugins.jetbrains.com/plugin/13126-yaml/versions
         )
     )
 }
