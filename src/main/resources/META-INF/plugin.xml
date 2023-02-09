@@ -99,6 +99,8 @@
        on how to target different products -->
   <depends>com.intellij.modules.platform</depends>
   <depends>com.intellij.modules.lang</depends>
+  <depends>org.jetbrains.plugins.yaml</depends>
+  <depends>Dart</depends>
 
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
